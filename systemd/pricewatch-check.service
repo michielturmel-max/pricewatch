@@ -1,0 +1,15 @@
+[Unit]
+Description=pricewatch: prijzen van je watches nakijken en meldingen sturen
+
+[Service]
+Type=oneshot
+# %h werkt in ExecStart, maar niet in StandardOutput=, dus de uitvoer gaat
+# naar de journal; lezen met:
+#   journalctl --user -u pricewatch-check.service -n 50
+ExecStart=%h/.config/omarchy/plugins/pricewatch/bin/pricewatch check --notify --timeout 25
+
+# Een winkel die hangt mag de timer niet blokkeren.
+TimeoutStartSec=180
+
+[Install]
+WantedBy=default.target

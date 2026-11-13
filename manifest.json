@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "pricewatch",
+  "name": "Pricewatch",
+  "version": "1.1.0",
+  "author": "michiel",
+  "license": "MIT",
+  "description": "Volg producten over meerdere winkels en zie in de bar wie het goedkoopst is. Zoek een product, zet hem op de volglijst en krijg een melding bij een doelprijs, een flinke daling of een nieuw laagste.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Pricewatch",
+    "description": "Volg één of meer producten over meerdere winkels. De bar toont het aantal watches onder je doelprijs (of de goedkoopste prijs bij één watch); klik voor het paneel met per product de beste prijs, de winkel, het prijsverloop met dagdieptepunt en gemiddelde, het verschil met zeven dagen geleden en een koopadvies. In het paneel zoek je een product ('a' of '/'), stel je doelprijs en bodem bij ('e', 'b'), sorteer en filter je de lijst ('s', 'f') en verwijder je watches met 'd'. Wissels vernieuwen de prijzen op de achtergrond en sturen een melding bij een doelprijs, een flinke daling of een nieuw laagste. Je watches staan in ~/.local/share/pricewatch/pricewatch.db en beheer je met 'pricewatch zoek|add|list|stats|export|import|check|rm'. Shops: amazon-nl, coolblue, mediamarkt, apple, informatique, proshop, tweakers (productpagina), bol en meer.",
+    "category": "Utilities",
+    "aliases": [
+      "pricewatch",
+      "prijs",
+      "prijzen",
+      "deal",
+      "deals",
+      "korting",
+      "laagste prijs"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "interval": 60,
+      "idleInterval": 300
+    },
+    "schema": [
+      {
+        "key": "interval",
+        "type": "number",
+        "label": "Verversinterval (paneel open)",
+        "description": "Seconden tussen twee prijsopvragen terwijl het paneel openstaat"
+      },
+      {
+        "key": "idleInterval",
+        "type": "number",
+        "label": "Verversinterval (paneel dicht)",
+        "description": "Seconden tussen twee prijsopvragen als alleen de bar zichtbaar is; achtergrondcontrole loopt via de systemd-timer"
+      }
+    ]
+  }
+}

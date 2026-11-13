@@ -1,0 +1,14 @@
+[Unit]
+Description=pricewatch: elke 30 minuten de prijzen nakijken
+
+[Timer]
+# Een kwartier voor de volgende klok, en dan elk half uur. Niet :00, want dan
+# krijg je meteen een oproep van elke prijsbewaker tegelijk.
+OnBootSec=4min
+OnUnitActiveSec=30min
+AccuracySec=1min
+# Je laptop lag netjes dicht en hoeft niets te doen als er niemand is.
+Persistent=false
+
+[Install]
+WantedBy=timers.target

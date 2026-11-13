@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+ <html lang="nl" class="position-relative">
+ <head prefix="og: http://ogp.me/ns#">
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="dns-prefetch" href="//ww2.proshop.nl" />
+     <link rel="dns-prefetch" href="//policy.app.cookieinformation.com" />
+     <link rel="preconnect" href="https://policy.app.cookieinformation.com" crossorigin />
+
+     <title></title>
+
+
+         <meta name="robots" content="noindex">
+               <meta property="og:title" />
+     <meta property="og:type" content="website" />
+     <meta property="og:image" content="mstile-310x310.png" />
+
+     <link rel="manifest" href="/app.webmanifest">
+     <link rel="icon" type="image/x-icon" href="/favicon.ico"> <!-- Fallback -->
+     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+     <link rel="apple-touch-icon" href="/apple-touch-icon-v2.png" />
+
+     
+    
+    
+<link rel="stylesheet" href="/dist/Proshop/site.6092d496.css">
+    
+
+
+
+         <script>var proshopGtmServerDataLayer = [{}];</script>
+     <script type="module">
+    window.dataLayer = window.dataLayer || [];
+    function getElements() {
+        return document.querySelectorAll('[data-gtm]');
+    }
+    getElements().forEach(el => {
+        window.dataLayer.push(JSON.parse(atob(el.dataset.gtm)));
+    });
+    let btns = document.querySelectorAll('button[data-gtm-item-id]');
+    btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            let gtmId = this.getAttribute('data-gtm-item-id');
+            getElements().forEach(el => {
+                var gtmJson = JSON.parse(atob(el.dataset.gtm));
+                for (var i = 0; i < gtmJson.ecommerce.items.length; i++) {
+                    if (gtmJson.ecommerce.items[i].item_id !== gtmId) {
+                        continue;
+                    }
+                    window.dataLayer.push({ event: 'add_to_cart', ecommerce: { items: gtmJson.ecommerce.items[i] } });
+                    return;
+                }
+            });
+        },false);
+    });
+    let basketBuyBtn = document.querySelector('#CommerceBasketApp a.site-btn-green');
+    if (basketBuyBtn) {
+        basketBuyBtn.addEventListener('click', function (e) {
+            let basketLines = document.querySelectorAll('#basketLines li input');
+            basketLines.forEach((element) => {
+                let gtmJson = JSON.parse(this.getAttribute("data-gtm-click"));
+                let theId = element.getAttribute("id");
+                for (let index = 0; index < gtmJson.ecommerce.items.length; index++) {
+                    if (gtmJson.ecommerce.items[index].item_id !== theId) {
+                        continue;
+                    }
+                    gtmJson.ecommerce.items[index].quantity = element.value;
+                    window.dataLayer.push({ ecommerce: null })
+                    window.dataLayer.push(gtmJson);
+                    break;
+                }
+            });
+        });
+    }
+    let paymentTypeButtons = document.getElementsByName("paymentOption");    
+    paymentTypeButtons.forEach(function (paymentTypeButton) {
+        paymentTypeButton.addEventListener('click', function () {
+            window.dataLayer.push({ ecommerce: null })
+            window.dataLayer.push(JSON.parse(atob(paymentTypeButton.getAttribute('data-gtm-payment'))));
+        });
+    });
+</script>
+     
+
+
+<script type="text/javascript">
+        var apps = {};
+        apps.queue = [];
+        apps.register = function (rootContainer, app) {
+            if (typeof registerApp != 'undefined')
+                registerApp(rootContainer, app)
+            else {
+                apps.queue.push({ rootContainer, app });
+            }
+        }
+    </script>
+
+     
+    
+
+     
+    
+    <link rel="preload" href="/dist/js/shared.bc3877ad.js" as="script">
+<script src="/dist/js/shared.bc3877ad.js" defer></script>
+
+    <script type="text/javascript" src="/Content/v-215800537/scriptsBase.bundle.js" defer></script>
+
+<script src="/dist/js/common.45c8f2f2.js" defer></script>
+
+<script src="/dist/js/menu.446ba30a.js" defer></script>
+
+<script src="/dist/js/showmo.2.edc81594.js" defer></script>
+
+    
+    <script src="/dist/js/productList.829a4a26.js" defer></script>
+
+<script src="/dist/js/showmo.2.edc81594.js" defer></script>
+
+
+
+
+
+     
+<script>
+(()=>{var e={cookieWarning:!1,validCategories:["functional","statistic","marketing"]};function n(){dataLayer.push(arguments)}function t(){window.addEventListener("mousemove",o),window.addEventListener("scroll",o),window.addEventListener("keydown",o)}function o(){window.removeEventListener("mousemove",o),window.removeEventListener("scroll",o),window.removeEventListener("keydown",o);var e=document.createElement("script");e.type="text/javascript",e.id="CookieConsent",e.src="https://policy.app.cookieinformation.com/uc.js",e.dataset.culture="NL",e.dataset.gcmVersion="2.0",document.head.appendChild(e)}window.Consent=e,window.dataLayer=window.dataLayer||[],n("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied",wait_for_update:5e3}),function(){var e,a,i=(e="CookieInformationConsent",2===(a=("; "+document.cookie).split("; "+e+"=")).length?a.pop().split(";").shift():null);if(navigator.userAgent.includes("CookieInformationScanner"))o();else if(i){try{var d=JSON.parse(decodeURIComponent(i));if(d&&d.consents_approved&&d.consents_approved.length>0){var r=-1!==d.consents_approved.indexOf("cookie_cat_statistic"),s=-1!==d.consents_approved.indexOf("cookie_cat_marketing");n("consent","update",{analytics_storage:r?"granted":"denied",ad_storage:s?"granted":"denied",ad_user_data:s?"granted":"denied",ad_personalization:s?"granted":"denied"})}}catch(e){}t()}else t()}(),e.cookieWarning=!0,e.isValid=function(e){try{return null==e||0==e.length||CookieInformation.getConsentGivenFor("cookie_cat_"+e)}catch{return!1}},e.run=function(n,t){e.isValid(n)&&t()},e.activateFor=function(n,t){e.isValid(n)?t():window.addEventListener("CookieInformationConsentGiven",(function(){e.run(n,t)}))},e.activateFor("marketing",(function(){document.querySelectorAll("[data-consent-src]").forEach((e=>{const n=e.getAttribute("data-consent-src");if(n&&(e.setAttribute("src",n),"SOURCE"===e.tagName)){const n=e.closest("video");n&&n.load()}}))}))})();
+</script>
+ </head>
+ 
+
+
+<body id="siteContainer" data-version="1.0.9762.28278" data-cnet="8e22894ac4" data-lang="nl-NL" data-site="proshop.nl" data-nmc="False">
+    <noscript><iframe src="//ww2.proshop.nl/ns.html?id=GTM-PCQSS3W" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="module">
+(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//ww2.proshop.nl/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-PCQSS3W');
+</script>
+
+    
+
+<header id="pageHeader" class="fixed-top w-100">
+    <div class="pl-2 pr-2 ps-container">
+        <div class="header__template m-0 p-0">
+            <div class="header__logo align-items-center">
+                <a href="/" aria-label="Back to Home" id="logohome">
+
+
+
+<div data-vueapp="campaigns" class="site-logo" id="c4409677576594371b4b687c58ab7658d" element-id="44096775-7659-4371-b4b6-87c58ab7658d" data="eyJ1bmlxdWVQZXJzb25hbElkIjoieHoxNHl1ZHhta2F3Zm81NHQxdWs1em41In0">
+</div></a>
+            </div>
+<div class="header__search d-flex flex-nowrap">
+    <div class="header__burger hidden-md hidden-lg mr-2 d-flex align-items-center">
+        <button type="button" aria-label="Open menu" id="menu-button" class="pi-sm header__burger-menu position-relative m-0 p-0 d-block" aria-expanded="false" aria-haspopup="true" aria-controls="main-menu"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        
+    </div>
+    <div class="position-relative flex-1">
+        <form action="/" class="d-flex align-items-center" method="GET" role="search">
+                <input type="search" data-action="/ClientPlugins/AutoComplete/SearchResult" id="search-input" class="input__round-lg w-100 site-search" name="s" placeholder="Zoeken" title="Zoeken" aria-description="Zoeken naar producten" enterkeyhint="search">
+            
+            <button id="btn_clearSearchTerm" class="hidden d-flex align-items-center" type="reset">
+                <i aria-hidden="true" class="pi pi-close"></i>
+            </button>
+            <button type="submit" aria-label="Zoeken naar producten" class="input__round-btn green d-flex justify-content-center align-items-center"><i class="ki pi-xs pi-search"></i></button>
+        </form>
+    </div>
+</div><div class="header__categories d-flex">
+                    <a href="/Veelgestelde-vragenFAQ.htm" class="header__icon"><i class="pi-sm pi pi-headphones-b d-flex"></i><p class="header__text m-0 hidden-sm hidden-xs">Help</p></a>
+                <div class="header__icon"><a id="logout" class="hidden btn__no-style dropdown-toggle position-relative d-flex flex-wrap justify-content-center" href="/login">
+    <i class="pi-sm pi pi-login d-block position-relative"><small class='header__number-login position-absolute'><span class="pi-xxs pi pi-check-white"></span></small></i>
+    <p id="loginButtonText" class="hidden-xs hidden-sm header__text m-0 truncate-overflow">Inloggen</p>
+    
+</a>
+<button id="openLogin" type="button" class="btn__no-style position-relative align-items-center d-flex-column">
+    <i class="pi-sm pi pi-login d-block position-relative"></i>
+    <p id="loginButtonText" class="hidden-xs hidden-sm  hidden-sm header__text m-0 truncate-overflow">Inloggen</p>
+    
+</button></div><div class="header__icon">
+<div id="minibasket" data-customerid>
+<form action="/Basket" class="form-horizontal" method="get">        <button type="submit" class="btn__no-style position-relative w-100" id="btnBasket"><small data-minibasketlinecount class="pi-sm pi pi-basket m-auto position-relative d-block"></small><p class="hidden-xs hidden-sm header__text m-0" data-minibasketprice data-toggle="tooltip" data-placement="bottom"></p></button>
+</form></div></div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<section class="menu-top hidden-xs hidden-sm position-absolute w-100">
+    <div class="pl-2 pr-2 ps-container">
+        <div class="d-flex flex-nowrap">
+                <a class="menu-top__cta menu-top__cta--bf" href="/Laptop">Laptop</a>
+                <a class="menu-top__cta menu-top__cta--bf" href="/Gaming">Gaming</a>
+                <a class="menu-top__cta menu-top__cta--bf" href="/Mobiel">Mobiel</a>
+                <a class="menu-top__cta menu-top__cta--bf" href="/Smart-Home">Smart Home</a>
+                <a class="menu-top__cta menu-top__cta--bf" href="/SSD">SSD</a>
+                <a class="menu-top__cta menu-top__cta--bf" href="/Black-Friday">Black Friday</a>
+                            <div class="menu-top__cta menu-top__cta--bf"><a data-action="campaignClick" data-id="096e58a2-c1cf-4ac1-a2a3-1f17e258a656" data-name="TOP MENU" data-creative="8be5a557-7fa7-4f11-aad4-6bb960ab23e7" data-position="top-menu" href="/DEALS">DEALS</a> <a data-action="campaignClick" data-id="096e58a2-c1cf-4ac1-a2a3-1f17e258a656" data-name="TOP MENU" data-creative="8be5a557-7fa7-4f11-aad4-6bb960ab23e7" data-position="top-menu" href="/Dutzo">DUTZO Gaming</a> <a data-action="campaignClick" data-id="096e58a2-c1cf-4ac1-a2a3-1f17e258a656" data-name="TOP MENU" data-creative="8be5a557-7fa7-4f11-aad4-6bb960ab23e7" data-position="top-menu" href="/Cadeaubon/Waardebon/100001">Waardebon</a></div>
+        </div>
+    </div>
+</section>
+
+
+</header>
+<div id="search-result" class="position-relative">
+    <div id="search-result-content"></div>
+    <div class="modal-backdrop fade in" onclick="closeSearchResult()"></div>
+</div>
+        <div class="site-background-banner hidden-sm">
+
+
+
+<div data-vueapp="campaigns" class="site-background-skin" id="cb0b2c3fc7c6d4fb8a9b0269c54856f28" element-id="b0b2c3fc-7c6d-4fb8-a9b0-269c54856f28" data="eyJ1bmlxdWVQZXJzb25hbElkIjoieHoxNHl1ZHhta2F3Zm81NHQxdWs1em41In0">
+</div></div>
+    
+    
+
+    <div class="site-container-fullwidth">
+            <div class="top-banner-container visible-sm">
+                <div class="site-top-banner d-flex justify-content-center align-items-center">
+
+
+
+<div data-vueapp="campaigns" class="site-top" id="c67450b3f59c14d00b40ee54ad231395f" element-id="67450b3f-59c1-4d00-b40e-e54ad231395f" data="eyJ1bmlxdWVQZXJzb25hbElkIjoieHoxNHl1ZHhta2F3Zm81NHQxdWs1em41In0">
+</div></div>
+            </div>
+                    <div class="visible-xs site-top-banner-mobile">
+
+
+
+<div data-vueapp="campaigns" class="site-top-small" id="c02fa977f06bc4c1fb8821ef90781d33e" element-id="02fa977f-06bc-4c1f-b882-1ef90781d33e" data="eyJ1bmlxdWVQZXJzb25hbElkIjoieHoxNHl1ZHhta2F3Zm81NHQxdWs1em41In0">
+</div></div>
+        <div class="container site-container ps-container position-relative hasTopBanner">
+            
+
+<div class="site-content-table row">
+    <div class="col-xs-12 col-md-3 p-0">
+        <aside id="Site-menu" class="position-relative">
+    <nav id="site-mainMenu"
+         class="site-mainMenu position-relative"
+         :class="[{'ismobile' : isMobile}, { active: active}]"
+         aria-label="Main menu"
+         @mouseleave="throttleLeaveMenu"
+         @keydown.escape.prevent="setPath([])"
+         :menulevel="menulevel">
+
+        <div v-if="isMobile" class="site-mainMenuMobileTitle">
+            <div class="site-mainMenuMobileLogo">
+                <a href="/" aria-label="Back to Home">    <div class="site-campaignElement" data-campaign-element-id="44096775-7659-4371-b4b6-87c58ab7658d">
+        <img src="/Images/logo_44d9e7b4d037.svg" alt />
+    </div>
+</a>
+            </div>
+            <button type="button" @click="hideMobileMenu" aria-label="Close" class="justify-self-end"><i aria-hidden="true" class="ki ki-m pi-close"></i></button>
+        </div>
+        <ul ref="mainMenuItems" class="site-mainMenuItems d-flex" id="main-menu" role="menu" aria-labelledby="menu-button">
+                <li class="outlet d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Outlet'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Outlet')">
+                    <i data-bg="/Content/images/SVG/outlet.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/outlet.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Outlet"
+                       href="/Veiling-Outlet"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Outlet'"
+                       aria-controls="submenu-Sortiment_Outlet"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Outlet')"
+                       @click="handleMainItemClick($event, 'Sortiment_Outlet')">
+                        Veiling &amp; Outlet
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Outlet' }"></i>
+                </li>
+                <li class="campaign d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'campaigns'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('campaigns')">
+                    <i data-bg="/Content/images/SVG/campaigns.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/campaigns.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-campaigns"
+                       href="/campaigns"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'campaigns'"
+                       aria-controls="submenu-campaigns"
+                       @keydown="handleTopLevelKeyDown($event, 'campaigns')"
+                       @click="handleMainItemClick($event, 'campaigns')">
+                        Campagnes
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'campaigns' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'boger'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('boger')">
+                    <i data-bg="/Content/images/SVG/boger.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/boger.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-boger"
+                       href="/Boeken"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'boger'"
+                       aria-controls="submenu-boger"
+                       @keydown="handleTopLevelKeyDown($event, 'boger')"
+                       @click="handleMainItemClick($event, 'boger')">
+                        Boeken
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'boger' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Computer'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Computer')">
+                    <i data-bg="/Content/images/SVG/computer.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/computer.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Computer"
+                       href="/Computer"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Computer'"
+                       aria-controls="submenu-Sortiment_Computer"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Computer')"
+                       @click="handleMainItemClick($event, 'Sortiment_Computer')">
+                        Computer
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Computer' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Belysning'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Belysning')">
+                    <i data-bg="/Content/images/SVG/belysning.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/belysning.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Belysning"
+                       href="/Elektriciteit-Sanitair"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Belysning'"
+                       aria-controls="submenu-Sortiment_Belysning"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Belysning')"
+                       @click="handleMainItemClick($event, 'Sortiment_Belysning')">
+                        Elektriciteit &amp; Sanitair
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Belysning' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_FotoVideo'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_FotoVideo')">
+                    <i data-bg="/Content/images/SVG/fotovideo.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/fotovideo.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_FotoVideo"
+                       href="/Foto-Video"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_FotoVideo'"
+                       aria-controls="submenu-Sortiment_FotoVideo"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_FotoVideo')"
+                       @click="handleMainItemClick($event, 'Sortiment_FotoVideo')">
+                        Foto &amp; Video
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_FotoVideo' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'games-gaming'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('games-gaming')">
+                    <i data-bg="/Content/images/SVG/games-gaming.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/games-gaming.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-games-gaming"
+                       href="/Games-Gaming"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'games-gaming'"
+                       aria-controls="submenu-games-gaming"
+                       @keydown="handleTopLevelKeyDown($event, 'games-gaming')"
+                       @click="handleMainItemClick($event, 'games-gaming')">
+                        Games &amp; Gaming
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'games-gaming' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Hardware'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Hardware')">
+                    <i data-bg="/Content/images/SVG/hardware.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/hardware.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Hardware"
+                       href="/Hardware"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Hardware'"
+                       aria-controls="submenu-Sortiment_Hardware"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Hardware')"
+                       @click="handleMainItemClick($event, 'Sortiment_Hardware')">
+                        Hardware
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Hardware' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_HusHave'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_HusHave')">
+                    <i data-bg="/Content/images/SVG/hushave.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/hushave.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_HusHave"
+                       href="/Huis-Tuin"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_HusHave'"
+                       aria-controls="submenu-Sortiment_HusHave"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_HusHave')"
+                       @click="handleMainItemClick($event, 'Sortiment_HusHave')">
+                        Huis &amp; Tuin
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_HusHave' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'pets'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('pets')">
+                    <i data-bg="/Content/images/SVG/pets.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/pets.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-pets"
+                       href="/Huisdieren"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'pets'"
+                       aria-controls="submenu-pets"
+                       @keydown="handleTopLevelKeyDown($event, 'pets')"
+                       @click="handleMainItemClick($event, 'pets')">
+                        Huisdieren
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'pets' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Husholdning'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Husholdning')">
+                    <i data-bg="/Content/images/SVG/husholdning.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/husholdning.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Husholdning"
+                       href="/Huishouden"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Husholdning'"
+                       aria-controls="submenu-Sortiment_Husholdning"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Husholdning')"
+                       @click="handleMainItemClick($event, 'Sortiment_Husholdning')">
+                        Huishouden
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Husholdning' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_KablerStik'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_KablerStik')">
+                    <i data-bg="/Content/images/SVG/kablerstik.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/kablerstik.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_KablerStik"
+                       href="/Kabels-en-stekkers"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_KablerStik'"
+                       aria-controls="submenu-Sortiment_KablerStik"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_KablerStik')"
+                       @click="handleMainItemClick($event, 'Sortiment_KablerStik')">
+                        Kabels en stekkers
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_KablerStik' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'office-supplies'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('office-supplies')">
+                    <i data-bg="/Content/images/SVG/office-supplies.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/office-supplies.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-office-supplies"
+                       href="/Kantoor-Hobby-Artikelen"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'office-supplies'"
+                       aria-controls="submenu-office-supplies"
+                       @keydown="handleTopLevelKeyDown($event, 'office-supplies')"
+                       @click="handleMainItemClick($event, 'office-supplies')">
+                        Kantoor &amp; Hobby Artikelen
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'office-supplies' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_SpilFilm'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_SpilFilm')">
+                    <i data-bg="/Content/images/SVG/spilfilm.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/spilfilm.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_SpilFilm"
+                       href="/Kind-Speelgoed"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_SpilFilm'"
+                       aria-controls="submenu-Sortiment_SpilFilm"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_SpilFilm')"
+                       @click="handleMainItemClick($event, 'Sortiment_SpilFilm')">
+                        Kind &amp; Speelgoed
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_SpilFilm' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_MobilGPS'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_MobilGPS')">
+                    <i data-bg="/Content/images/SVG/mobilgps.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/mobilgps.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_MobilGPS"
+                       href="/Mobiele-Telefoon-Tablet"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_MobilGPS'"
+                       aria-controls="submenu-Sortiment_MobilGPS"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_MobilGPS')"
+                       @click="handleMainItemClick($event, 'Sortiment_MobilGPS')">
+                        Mobiele Telefoon &amp; Tablet
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_MobilGPS' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Netvaerk'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Netvaerk')">
+                    <i data-bg="/Content/images/SVG/netvaerk.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/netvaerk.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Netvaerk"
+                       href="/Netwerk"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Netvaerk'"
+                       aria-controls="submenu-Sortiment_Netvaerk"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Netvaerk')"
+                       @click="handleMainItemClick($event, 'Sortiment_Netvaerk')">
+                        Netwerk
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Netvaerk' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_PersonligPleje'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_PersonligPleje')">
+                    <i data-bg="/Content/images/SVG/personligpleje.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/personligpleje.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_PersonligPleje"
+                       href="/Persoonlijke-verzorging"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_PersonligPleje'"
+                       aria-controls="submenu-Sortiment_PersonligPleje"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_PersonligPleje')"
+                       @click="handleMainItemClick($event, 'Sortiment_PersonligPleje')">
+                        Persoonlijke verzorging
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_PersonligPleje' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_PrintereForbrugstoffer'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_PrintereForbrugstoffer')">
+                    <i data-bg="/Content/images/SVG/printereforbrugstoffer.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/printereforbrugstoffer.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_PrintereForbrugstoffer"
+                       href="/Printers-en-verbruiksartikelen"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_PrintereForbrugstoffer'"
+                       aria-controls="submenu-Sortiment_PrintereForbrugstoffer"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_PrintereForbrugstoffer')"
+                       @click="handleMainItemClick($event, 'Sortiment_PrintereForbrugstoffer')">
+                        Printers en verbruiksartikelen
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_PrintereForbrugstoffer' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_Software'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_Software')">
+                    <i data-bg="/Content/images/SVG/software.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/software.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_Software"
+                       href="/Software"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_Software'"
+                       aria-controls="submenu-Sortiment_Software"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_Software')"
+                       @click="handleMainItemClick($event, 'Sortiment_Software')">
+                        Software
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_Software' }"></i>
+                </li>
+                <li class=" d-flex align-items-center w-100"
+                    role="presentation"
+                    :class="[{active: activePath[0] === 'Sortiment_TVHifi'}]"
+                    @mouseover="isMobile ? null : handleMouseOver('Sortiment_TVHifi')">
+                    <i data-bg="/Content/images/SVG/tvhifi.svg"
+                       width="25" height="25"
+                       class="site-mainMenuItemIcon lazy"
+                       style="background-image: url(/Content/images/SVG/tvhifi.svg);"></i>
+                    <a class="d-flex"
+                       id="menu-item-Sortiment_TVHifi"
+                       href="/TV-Audio"
+                       role="menuitem"
+                       aria-haspopup="true"
+                       :aria-expanded="activePath[0] === 'Sortiment_TVHifi'"
+                       aria-controls="submenu-Sortiment_TVHifi"
+                       @keydown="handleTopLevelKeyDown($event, 'Sortiment_TVHifi')"
+                       @click="handleMainItemClick($event, 'Sortiment_TVHifi')">
+                        TV &amp; Audio
+                    </a>
+                    <i v-if="isMobile" class="ki-s pi-chev-right svg-fill-red"></i>
+                    <i v-else :class="{'ki-s pi-chev-right svg-fill-red': activePath[0] == 'Sortiment_TVHifi' }"></i>
+                </li>
+        </ul>
+        <sub-menu :id="'submenu-' + activePath[0]"
+                  :key="activePath[0]"
+                  v-if="activePath.length > 0 && data[activePath[0]]"
+                  :nodes="data[activePath[0]]"
+                  :active-path="activePath"
+                  :current-path-segment="activePath[0]"
+                  :is-visually-active="activePath.length >= 1" 
+                  :categoryname="getCategoryName(activePath[0])"
+                  :category-url="getCategoryUrl(activePath[0])"
+                  :ismobile="isMobile"
+                  :menulevel="2"
+                  :data-store="data"
+                  @set-path="setPath($event)"
+                  @close-all-menus="handleBackdropClick"
+                  @mouseover="clearMenuTimer"></sub-menu>
+    </nav>
+    <div v-cloak v-if="backDropIsActive" @click.self="handleBackdropClick" class="menudrop"></div>
+</aside>
+            <div class="hidden-xs hidden-sm mt-2">
+                <div class="mb-2">
+
+
+
+<div data-vueapp="campaigns" class="site-bottom-left" id="c81cecc2c6c754ff4bdfbc548018d6412" element-id="81cecc2c-6c75-4ff4-bdfb-c548018d6412" data="eyJ1bmlxdWVQZXJzb25hbElkIjoieHoxNHl1ZHhta2F3Zm81NHQxdWs1em41In0">
+</div></div>
+            </div>
+    </div>
+    <main class="col-xs-12 col-md-9">
+            <div>
+                <div class="site-bar-breadcrumbs d-flex mb-2">
+                    <ol class="breadcrumb d-flex small" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a class="p-0" href="/" itemprop="item"><span itemprop="name">Startpagina</span></a><meta itemprop="position" content="1" /></li>
+
+
+</ol>
+                </div>
+            </div>
+        
+        
+
+
+
+
+
+
+
+
+
+    <div id="productList" class="mt-2 w-100 filter-old">
+            <div class="site-filter-sorting clearfix">
+                <facet-collections-old :facet-collections="facetCollections">
+                    <template v-slot:show-more-text>
+                        Toon meer
+                    </template>
+                    <template v-slot:show-less-text>
+                        Toon minder
+                    </template>
+                    <template v-slot:reset-text>
+                        Reset alle filters
+                    </template>
+                </facet-collections-old>
+            </div>
+        <div id="products-container">
+
+<div class="sr-only" aria-live="polite" aria-atomic="true">
+    <span id="product-count">237675</span> products
+</div>
+<ul class="site-panel list-unstyled site-productlist-container pt-1" role="list" id="products" data-gtm="eyJldmVudCI6InZpZXdfaXRlbV9saXN0IiwiZWNvbW1lcmNlIjp7Iml0ZW1zIjpbeyJpdGVtX2lkIjoiMzM0NzcwNCIsIml0ZW1fbmFtZSI6IlNhbXN1bmcgOTEwMCBQUk8gU1NEIC0gNFRCIC0gWm9uZGVyIGhlYXRzaW5rIC0gTS4yIDIyODAgLSBQQ0llIDUuMCIsIml0ZW1fYnJhbmQiOiJTYW1zdW5nIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjo3NjkuOTAwMDEsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMzIxMDEyIiwiaXRlbV9uYW1lIjoiU0FORElTSyBXRCBCbGFjayBTTjcxMDAgU1NEIC0gMVRCIC0gUENJZSA0LjAgLSBNLjIgMjI4MCIsIml0ZW1fYnJhbmQiOiJTQU5ESVNLIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoxNjkuODk5OTcyLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzA2ODA3NyIsIml0ZW1fbmFtZSI6IlNhbXN1bmcgUG9ydGFibGUgU1NEIFQ3IFNoaWVsZCAtIDJUQiAtIFp3YXJ0IC0gRXh0ZXJuYWwgaGFyZCBkcml2ZSBTU0QgLSBVU0IgMy4yIEdlbiAyIiwiaXRlbV9icmFuZCI6IlNhbXN1bmciLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjM5NC4zOTk1LCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzMyMTAxMSIsIml0ZW1fbmFtZSI6IlNBTkRJU0sgV0QgQmxhY2sgU043MTAwIFNTRCAtIDUwMEdCIC0gUENJZSA0LjAgLSBNLjIgMjI4MCIsIml0ZW1fYnJhbmQiOiJTQU5ESVNLIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoxMjQuODk5OTUxLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzI4NDY4MSIsIml0ZW1fbmFtZSI6IktpbmdzdG9uIE5WMyBTU0QgLSA1MDBHQiAtIFBDSWUgNC4wIC0gTS4yIDIyODAiLCJpdGVtX2JyYW5kIjoiS2luZ3N0b24iLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjEwMy4yODU2LCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzI4NDY4MiIsIml0ZW1fbmFtZSI6IktpbmdzdG9uIE5WMyBTU0QgLSAxVEIgLSBQQ0llIDQuMCAtIE0uMiAyMjgwIiwiaXRlbV9icmFuZCI6IktpbmdzdG9uIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoxNDkuOTAwMDAzLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzM4ODE3NCIsIml0ZW1fbmFtZSI6IktpbmdzdG9uIE5WMyBTU0QgLSAyVEIgLSBQQ0llIDQuMCAtIE0uMiAyMjMwIiwiaXRlbV9icmFuZCI6IktpbmdzdG9uIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoyODMuOTk5MSwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMwOTc0MjkiLCJpdGVtX25hbWUiOiJTQU5ESVNLIFdEIEJsYWNrIFNOODUwWCBTU0QgLSAyVEIgLSBNLjIgMjI4MCAtIFBDSWUgNC4wIC0gTWV0IGhlYXRzaW5rIiwiaXRlbV9icmFuZCI6IlNBTkRJU0siLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjM5OS43MzU2LCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzA5NzQyNyIsIml0ZW1fbmFtZSI6IlNBTkRJU0sgV0QgQmxhY2sgU044NTBYIFNTRCAtIDRUQiAtIE0uMiAyMjgwIC0gUENJZSA0LjAgLSBab25kZXIgaGVhdHNpbmsiLCJpdGVtX2JyYW5kIjoiU0FORElTSyIsIml0ZW1fY2F0ZWdvcnkiOiJTU0QiLCJwcmljZSI6NjE1Ljk3NDcsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIyNjI4ODkxIiwiaXRlbV9uYW1lIjoiSW50ZW5zbyBTU0QgVG9wIC0gNTEyR0IgLSBNLjIgMjI4MCAtIFNBVEEtNjAwIiwiaXRlbV9icmFuZCI6IkludGVuc28iLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjgwLjQyODcsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMzY4OTExIiwiaXRlbV9uYW1lIjoiU0FORElTSyBXRCBCbGFjayBTTjgxMDAgU1NEIC0gNFRCIC0gTS4yIDIyODAgLSBQQ0llIDUuMCAtIFpvbmRlciBoZWF0c2luayIsIml0ZW1fYnJhbmQiOiJTQU5ESVNLIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjo3NjcuNTE1MSwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMwMDk4NDAiLCJpdGVtX25hbWUiOiJLaW5nc3RvbiBLQzMwMDAgU1NEIC0gNTEyR0IgLSBQQ0llIDQuMCAtIE0uMiAyMjgwIiwiaXRlbV9icmFuZCI6IktpbmdzdG9uIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoxMzkuOTM2NSwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxOTEzMDIiLCJpdGVtX25hbWUiOiJMZXhhciBOTTc5MCBTU0QgLSAyVEIgLSBNLjIgMjI4MCAtIFBDSWUgNC4wIC0gWm9uZGVyIGhlYXRzaW5rIiwiaXRlbV9icmFuZCI6IkxleGFyIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjozMTEuNzQ0NCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjI5OTE1MTciLCJpdGVtX25hbWUiOiJLaW5nc3RvbiBYUzIwMDAgUG9ydGFibGUgU1NEIC0gMVRCIC0gRXh0ZXJuYWwgaGFyZCBkcml2ZSBTU0QgLSBVU0ItQyIsIml0ZW1fYnJhbmQiOiJLaW5nc3RvbiIsIml0ZW1fY2F0ZWdvcnkiOiJTU0QiLCJwcmljZSI6MTY1LjY4NTMsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMzk3MTE5IiwiaXRlbV9uYW1lIjoiTGV4YXIgTk05OTAgU1NEIC0gNFRCIC0gTS4yIDIyODAgLSBQQ0llIDUuMCIsIml0ZW1fYnJhbmQiOiJMZXhhciIsIml0ZW1fY2F0ZWdvcnkiOiJTU0QiLCJwcmljZSI6NTI5LjQxMTMsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMTczMTQ1IiwiaXRlbV9uYW1lIjoiU2Ftc3VuZyA5OTAgUHJvIFNTRCAtIDJUQiAtIE1ldCBoZWF0c2luayAtIE0uMiAyMjgwIC0gUENJZSA0LjAiLCJpdGVtX2JyYW5kIjoiU2Ftc3VuZyIsIml0ZW1fY2F0ZWdvcnkiOiJTU0QiLCJwcmljZSI6NDIxLjAzMTYsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzNDg0MzI4IiwiaXRlbV9uYW1lIjoiQmFyYmllIE51dGNyYWNrZXIgRGVsdXhlIEZlYXR1cmUgRG9sbCBDbGFyYSIsIml0ZW1fYnJhbmQiOiJCYXJiaWUiLCJpdGVtX2NhdGVnb3J5IjoiRG9sbHMgJiBBY2Nlc3NvcmllcyIsInByaWNlIjozMS4wNzI4LCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzE5MTMwNCIsIml0ZW1fbmFtZSI6IkxleGFyIE5NNzkwIFNTRCAtIDRUQiAtIE0uMiAyMjgwIC0gUENJZSA0LjAgLSBab25kZXIgaGVhdHNpbmsiLCJpdGVtX2JyYW5kIjoiTGV4YXIiLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjUwNC43NzU3LCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzEzODkzOSIsIml0ZW1fbmFtZSI6IlNhbXN1bmcgUG9ydGFibGUgU1NEIFQ3IFNoaWVsZCAtIDRUQiAtIFp3YXJ0IC0gRXh0ZXJuYWwgaGFyZCBkcml2ZSBTU0QgLSBVU0IgMy4yIEdlbiAyIiwiaXRlbV9icmFuZCI6IlNhbXN1bmciLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjg3MS42ODQsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMjA1ODQ5IiwiaXRlbV9uYW1lIjoiVmVyYmF0aW0gVmkzMDAwIFNTRCAtIDI1NkdCIC0gUENJZSAzLjAgLSBNLjIgMjI4MCIsIml0ZW1fYnJhbmQiOiJWZXJiYXRpbSIsIml0ZW1fY2F0ZWdvcnkiOiJTU0QiLCJwcmljZSI6NzAuNzQ4NywicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjI5NzAyNTciLCJpdGVtX25hbWUiOiJQTlkgQ1M5MDAgU1NEIC0gMlRCIC0gU0FUQS02MDAgLSAyLjVcIiIsIml0ZW1fYnJhbmQiOiJQTlkiLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjIzNS40NzgxLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzAwOTg0MSIsIml0ZW1fbmFtZSI6IktpbmdzdG9uIEtDMzAwMCBTU0QgLSAxVEIgLSBQQ0llIDQuMCAtIE0uMiAyMjgwIiwiaXRlbV9icmFuZCI6IktpbmdzdG9uIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoyMTQuNjU0LCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMjYyODg4OSIsIml0ZW1fbmFtZSI6IkludGVuc28gU1NEIFRvcCAtIDEyOEdCIC0gTS4yIDIyODAgLSBTQVRBLTYwMCIsIml0ZW1fYnJhbmQiOiJJbnRlbnNvIiwiaXRlbV9jYXRlZ29yeSI6IlNTRCIsInByaWNlIjoyNi43NjUyLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzUwNTc3OCIsIml0ZW1fbmFtZSI6IkdvUHJvIE1JU1NJT04gMSBQUk8gVWx0aW1hdGUgQ3JlYXRvciBFZGl0aW9uIiwiaXRlbV9icmFuZCI6IkdvUHJvIiwiaXRlbV9jYXRlZ29yeSI6IkFjdGllY2FtZXJhIiwicHJpY2UiOjExOTkuOTkwMDMzLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzM4ODE3MiIsIml0ZW1fbmFtZSI6IktpbmdzdG9uIE5WMyBTU0QgLSA1MDBHQiAtIFBDSWUgNC4wIC0gTS4yIDIyMzAiLCJpdGVtX2JyYW5kIjoiS2luZ3N0b24iLCJpdGVtX2NhdGVnb3J5IjoiU1NEIiwicHJpY2UiOjE0Ni4zODU4LCJxdWFudGl0eSI6MX1dfSwic3VidG90YWxBbW91bnQiOjAuMH0=">
+        
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Samsung-9100-PRO-SSD-4TB-Zonder-heatsink-M2-2280-PCIe-50/3347704" title="Samsung 9100 PRO SSD - 4TB - Zonder heatsink - M.2 2280 - PCIe 5.0 - MZ-VAP4T0BW"><img alt="SSD - Samsung 9100 PRO SSD - 4TB - Zonder heatsink - M.2 2280 - PCIe 5.0 - MZ-VAP4T0BW" height="116" src="/Images/174x116/3347704_71ea9d3c7b0a.png" width="174" /></a>
+                    <div data-energy data-cpn="S30447717" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Samsung-9100-PRO-SSD-4TB-Zonder-heatsink-M2-2280-PCIe-50/3347704">
+                    <h2 product-display-name>Samsung 9100 PRO SSD - 4TB - Zonder heatsink - M.2 2280 - PCIe 5.0</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 4 TB, intern, <strong>overdracht snelheid:</strong> 14800 MB/s (lezen) / 13400 MB/s (schrijven), <strong>IOPS:</strong> 2200000 IOPS (lezen) / 2600000 IOPS (schrijven), 4GB LPDDR4X RAM, maat: M.2 2280 (80mm), PCI-Express 5.0 x4 verbinding, NVMe 2.0 (Non-Volatile Memory Express), hardware-encryptie: 256 bit / TCG Opal, Samsung Presto controller, software: Magican software for SSD management, kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">769,90 €</span>
+                            <span class="hidden-xs">(636,28 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3347704" />
+                            <input name="token" type="hidden" value="5c8e9a469957" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3347704">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3347704</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/SANDISK-WD-Black-SN7100-SSD-1TB-PCIe-40-M2-2280/3321012" title="SANDISK WD Black SN7100 SSD - 1TB - PCIe 4.0 - M.2 2280 - WDS100T4X0E-00CJA0"><img alt="SSD - SANDISK WD Black SN7100 SSD - 1TB - PCIe 4.0 - M.2 2280 - WDS100T4X0E-00CJA0" height="116" src="/Images/174x116/3321012_b3b67017283d.jpg" width="174" /></a>
+                    <div data-energy data-cpn="S30161589" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/SANDISK-WD-Black-SN7100-SSD-1TB-PCIe-40-M2-2280/3321012">
+                    <h2 product-display-name>SANDISK WD Black SN7100 SSD - 1TB - PCIe 4.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 1 TB, intern, <strong>overdracht snelheid:</strong> 7250 MB/s (lezen) / 6900 MB/s (schrijven), <strong>IOPS:</strong> 1000000 IOPS (lezen) / 1400000 IOPS (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), WD Polaris 3 A101-000103-A1 controller
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">169,90 €</span>
+                            <span class="hidden-xs">(140,41 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3321012" />
+                            <input name="token" type="hidden" value="0d28f9b13850" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3321012">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3321012</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Samsung-Portable-SSD-T7-Shield-2TB-Zwart-External-hard-drive-SSD-USB-32-Gen-2/3068077" title="Samsung Portable SSD T7 Shield - 2TB - Zwart - External hard drive SSD - USB 3.2 Gen 2 - MU-PE2T0S/EU"><img alt="SSD - Samsung Portable SSD T7 Shield - 2TB - Zwart - External hard drive SSD - USB 3.2 Gen 2 - MU-PE2T0S/EU" height="116" src="/Images/174x116/3068077_cd1703e15a65.png" width="174" /></a>
+                    <div data-energy data-cpn="S26567495" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Samsung-Portable-SSD-T7-Shield-2TB-Zwart-External-hard-drive-SSD-USB-32-Gen-2/3068077">
+                    <h2 product-display-name>Samsung Portable SSD T7 Shield - 2TB - Zwart - External hard drive SSD - USB 3.2 Gen 2</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD, gecodeerd, 2 TB, extern (draagbaar), USB 3.2 Gen 2 (USB-C aansluiting), 256-bits AES, zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">394,40 €</span>
+                            <span class="hidden-xs">(325,95 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3068077" />
+                            <input name="token" type="hidden" value="142df3cbe8cb" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3068077">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3068077</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/SANDISK-WD-Black-SN7100-SSD-500GB-PCIe-40-M2-2280/3321011" title="SANDISK WD Black SN7100 SSD - 500GB - PCIe 4.0 - M.2 2280 - WDS500G4X0E-00CJA0"><img alt="SSD - SANDISK WD Black SN7100 SSD - 500GB - PCIe 4.0 - M.2 2280 - WDS500G4X0E-00CJA0" height="116" src="/Images/174x116/3321011_86f06511c91b.jpg" width="174" /></a>
+                    <div data-energy data-cpn="S30161605" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/SANDISK-WD-Black-SN7100-SSD-500GB-PCIe-40-M2-2280/3321011">
+                    <h2 product-display-name>SANDISK WD Black SN7100 SSD - 500GB - PCIe 4.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 500 GB, intern, <strong>overdracht snelheid:</strong> 6800 MB/s (lezen) / 5800 MB/s (schrijven), <strong>IOPS:</strong> 760000 IOPS (lezen) / 1200000 IOPS (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), WD Polaris 3 A101-000103-A1 controller
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">124,90 €</span>
+                            <span class="hidden-xs">(103,22 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3321011" />
+                            <input name="token" type="hidden" value="90f15b9cc9e3" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3321011">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3321011</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-NV3-SSD-500GB-PCIe-40-M2-2280/3284681" title="Kingston NV3 SSD - 500GB - PCIe 4.0 - M.2 2280 - SNV3S/500G"><img alt="SSD - Kingston NV3 SSD - 500GB - PCIe 4.0 - M.2 2280 - SNV3S/500G" height="116" src="/Images/174x116/3284681_1a5c7285dbdc.png" width="174" /></a>
+                    <div data-energy data-cpn="S29773250" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-NV3-SSD-500GB-PCIe-40-M2-2280/3284681">
+                    <h2 product-display-name>Kingston NV3 SSD - 500GB - PCIe 4.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 500 GB, intern, <strong>overdracht snelheid:</strong> 6000 MB/s (lezen) / 2200 MB/s (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), Silicon Motion SM2268XT2 controller, software: Acronis cloning software<br /><br /> • Kingston's NV3 PCIe 4.0 NVMe SSD's zijn opslagoplossingen van de nieuwe generatie, aangedreven door een Gen 4x4 NVMe-controller die lees-/schrijfsnelheden tot 6.000/5.000MB/s levert. Verkrijgbaar in compacte, enkelzijdige M.2 2280 (22x80mm) en 2230 (22x30mm) formaten, ideaal om opslagruimte uit te breiden in kleine systemen zoals laptops en handheld gameconsoles. Ze bieden een lager energieverbruik en minder warmteontwikkeling, waardoor de systeemprestaties worden geoptimaliseerd zonder concessies aan de prijs-kwaliteitverhouding. Verkrijgbaar in capaciteiten van 500GB - 4TB voor al je applicaties, documenten, foto's, video's, games en meer.<ul><li><strong>Gen 4x4 NVMe PCIe-prestaties:</strong> Upgrade je systeem met lees-/schrijfsnelheden tot 6.000/5.000MB/s.</li><li><strong>Kleine maat, grote prestaties:</strong> NV3 2280 en 2230 passen eenvoudig in dunne laptops en ultracompacte pc's met M.2-aansluitingen en beperkte ruimte.</li><li><strong>Vergrote opslagruimte:</strong> Verkrijgbaar in hoge capaciteiten tot 4TB, ruim voldoende voor bestanden, video's, documenten en games.</li></ul>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">103,29 €</span>
+                            <span class="hidden-xs">(85,36 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3284681" />
+                            <input name="token" type="hidden" value="15340555e749" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3284681">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3284681</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682" title="Kingston NV3 SSD - 1TB - PCIe 4.0 - M.2 2280 - SNV3S/1000G"><img alt="SSD - Kingston NV3 SSD - 1TB - PCIe 4.0 - M.2 2280 - SNV3S/1000G" class="lazy" data-src="/Images/174x116/3284682_52527562b9cb.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S29773251" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-NV3-SSD-1TB-PCIe-40-M2-2280/3284682">
+                    <h2 product-display-name>Kingston NV3 SSD - 1TB - PCIe 4.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 1 TB, intern, <strong>overdracht snelheid:</strong> 6000 MB/s (lezen) / 4000 MB/s (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), Silicon Motion SM2268XT2 controller, software: Acronis cloning software<br /><br /> • Kingston's NV3 PCIe 4.0 NVMe SSD's zijn opslagoplossingen van de nieuwe generatie, aangedreven door een Gen 4x4 NVMe-controller die lees-/schrijfsnelheden tot 6.000/5.000MB/s levert. Verkrijgbaar in compacte, enkelzijdige M.2 2280 (22x80mm) en 2230 (22x30mm) formaten, ideaal om opslagruimte uit te breiden in kleine systemen zoals laptops en handheld gameconsoles. Ze bieden een lager energieverbruik en minder warmteontwikkeling, waardoor de systeemprestaties worden geoptimaliseerd zonder concessies aan de prijs-kwaliteitverhouding. Verkrijgbaar in capaciteiten van 500GB - 4TB voor al je applicaties, documenten, foto's, video's, games en meer.<ul><li><strong>Gen 4x4 NVMe PCIe-prestaties:</strong> Upgrade je systeem met lees-/schrijfsnelheden tot 6.000/5.000MB/s.</li><li><strong>Kleine maat, grote prestaties:</strong> NV3 2280 en 2230 passen eenvoudig in dunne laptops en ultracompacte pc's met M.2-aansluitingen en beperkte ruimte.</li><li><strong>Vergrote opslagruimte:</strong> Verkrijgbaar in hoge capaciteiten tot 4TB, ruim voldoende voor bestanden, video's, documenten en games.</li></ul>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">149,90 €</span>
+                            <span class="hidden-xs">(123,88 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3284682" />
+                            <input name="token" type="hidden" value="10ed7633ae1a" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3284682">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3284682</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-NV3-SSD-2TB-PCIe-40-M2-2230/3388174" title="Kingston NV3 SSD - 2TB - PCIe 4.0 - M.2 2230 - SNV3SM3/2T0"><img alt="SSD - Kingston NV3 SSD - 2TB - PCIe 4.0 - M.2 2230 - SNV3SM3/2T0" class="lazy" data-src="/Images/174x116/3388174_ac0d19c954fd.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S30656289" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-NV3-SSD-2TB-PCIe-40-M2-2230/3388174">
+                    <h2 product-display-name>Kingston NV3 SSD - 2TB - PCIe 4.0 - M.2 2230</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 2 TB, intern, <strong>overdracht snelheid:</strong> 6000 MB/s (lezen) / 5000 MB/s (schrijven), maat: M.2 2230 (30mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), Silicon Motion SM2268XT2 controller, software: Acronis cloning software<br /><br /> • Kingston's NV3 PCIe 4.0 NVMe SSD's zijn opslagoplossingen van de nieuwe generatie, aangedreven door een Gen 4x4 NVMe-controller die lees-/schrijfsnelheden tot 6.000/5.000MB/s levert. Verkrijgbaar in compacte, enkelzijdige M.2 2280 (22x80mm) en 2230 (22x30mm) formaten, ideaal om opslagruimte uit te breiden in kleine systemen zoals laptops en handheld gameconsoles. Ze bieden een lager energieverbruik en minder warmteontwikkeling, waardoor de systeemprestaties worden geoptimaliseerd zonder concessies aan de prijs-kwaliteitverhouding. Verkrijgbaar in capaciteiten van 500GB - 4TB voor al je applicaties, documenten, foto's, video's, games en meer.<ul><li><strong>Gen 4x4 NVMe PCIe-prestaties:</strong> Upgrade je systeem met lees-/schrijfsnelheden tot 6.000/5.000MB/s.</li><li><strong>Kleine maat, grote prestaties:</strong> NV3 2280 en 2230 passen eenvoudig in dunne laptops en ultracompacte pc's met M.2-aansluitingen en beperkte ruimte.</li><li><strong>Vergrote opslagruimte:</strong> Verkrijgbaar in hoge capaciteiten tot 4TB, ruim voldoende voor bestanden, video's, documenten en games.</li><li><strong>Meer opslaan, meer spelen:</strong> Upgrade compatibele handheld spelsystemen met de NV3 2230 voor snellere toegang tot je games.</li></ul>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">284,00 €</span>
+                            <span class="hidden-xs">(234,71 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3388174" />
+                            <input name="token" type="hidden" value="118edbd086ae" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3388174">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3388174</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/SANDISK-WD-Black-SN850X-SSD-2TB-M2-2280-PCIe-40-With-Heatsink/3097429" title="SANDISK WD Black SN850X SSD - 2TB - M.2 2280 - PCIe 4.0 - Met heatsink - WDS200T2XHE"><img alt="SSD - SANDISK WD Black SN850X SSD - 2TB - M.2 2280 - PCIe 4.0 - Met heatsink - WDS200T2XHE" class="lazy" data-src="/Images/174x116/3097429_f6b5364735d3.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S27147483" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/SANDISK-WD-Black-SN850X-SSD-2TB-M2-2280-PCIe-40-With-Heatsink/3097429">
+                    <h2 product-display-name>SANDISK WD Black SN850X SSD - 2TB - M.2 2280 - PCIe 4.0 - Met heatsink</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 2 TB, intern, <strong>overdracht snelheid:</strong> 7300 MB/s (lezen) / 6600 MB/s (schrijven), <strong>IOPS:</strong> 1200000 IOPS (lezen) / 1100000 IOPS (schrijven), maat: M.2 2280 (80mm), met koellichaam (controleer de compatibiliteit alvorens te kopen), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), TCG Opal 2.01, DirectStorage compatibel, WD 20-82-20035-B1 controller, kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">399,74 €</span>
+                            <span class="hidden-xs">(330,36 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3097429" />
+                            <input name="token" type="hidden" value="6a555d960625" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3097429">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3097429</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/SANDISK-WD-Black-SN850X-SSD-4TB-M2-2280-PCIe-40-Without-heatsink/3097427" title="SANDISK WD Black SN850X SSD - 4TB - M.2 2280 - PCIe 4.0 - Zonder heatsink - WDS400T2X0E"><img alt="SSD - SANDISK WD Black SN850X SSD - 4TB - M.2 2280 - PCIe 4.0 - Zonder heatsink - WDS400T2X0E" class="lazy" data-src="/Images/174x116/3097427_1acdee12e53d.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S27147481" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/SANDISK-WD-Black-SN850X-SSD-4TB-M2-2280-PCIe-40-Without-heatsink/3097427">
+                    <h2 product-display-name>SANDISK WD Black SN850X SSD - 4TB - M.2 2280 - PCIe 4.0 - Zonder heatsink</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 4 TB, intern, <strong>overdracht snelheid:</strong> 7300 MB/s (lezen) / 6600 MB/s (schrijven), <strong>IOPS:</strong> 1200000 IOPS (lezen) / 1100000 IOPS (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), TCG Opal 2.01, DirectStorage compatibel, WD 20-82-20035-B1 controller, kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">615,97 €</span>
+                            <span class="hidden-xs">(509,07 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3097427" />
+                            <input name="token" type="hidden" value="f0fbdddaf957" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3097427">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3097427</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Intenso-SSD-Top-512GB-M2-2280-SATA-600/2628891" title="Intenso SSD Top - 512GB - M.2 2280 - SATA-600 - 3832450"><img alt="SSD - Intenso SSD Top - 512GB - M.2 2280 - SATA-600 - 3832450" class="lazy" data-src="/Images/174x116/2628891_0857e09af58b.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S19718610" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Intenso-SSD-Top-512GB-M2-2280-SATA-600/2628891">
+                    <h2 product-display-name>Intenso SSD Top - 512GB - M.2 2280 - SATA-600</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        Solid state drive, 512 GB, intern, M.2 2280, SATA 6Gb/s
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">80,43 €</span>
+                            <span class="hidden-xs">(66,47 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="2628891" />
+                            <input name="token" type="hidden" value="8d0bee1c4ea6" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="2628891">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">2628891</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/SANDISK-WD-Black-SN8100-SSD-4TB-M2-2280-PCIe-50-Zonder-heatsink/3368911" title="SANDISK WD Black SN8100 SSD - 4TB - M.2 2280 - PCIe 5.0 - Zonder heatsink - WDS400T1X0M-00CMT0"><img alt="SSD - SANDISK WD Black SN8100 SSD - 4TB - M.2 2280 - PCIe 5.0 - Zonder heatsink - WDS400T1X0M-00CMT0" class="lazy" data-src="/Images/174x116/3368911_13a23ec3019a.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S30570366" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/SANDISK-WD-Black-SN8100-SSD-4TB-M2-2280-PCIe-50-Zonder-heatsink/3368911">
+                    <h2 product-display-name>SANDISK WD Black SN8100 SSD - 4TB - M.2 2280 - PCIe 5.0 - Zonder heatsink</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 4 TB, intern, <strong>overdracht snelheid:</strong> 14900 MB/s (lezen) / 14000 MB/s (schrijven), <strong>IOPS:</strong> 2300000 IOPS (lezen) / 2400000 IOPS (schrijven), 4GB RAM, maat: M.2 2280 (80mm), PCI-Express 5.0 x4 verbinding, NVMe 2.0 (Non-Volatile Memory Express), TCG Opal 2.02, Silicon Motion SM2508 controller<br /><br /> • Bouw je nieuwe gaming- of workstationsysteem met onze geavanceerde PCIe Gen 5 SSD, die razendsnelle snelheden tot 14.900 MB/s levert voor veeleisende taken zoals high-end gaming, professionele contentcreatie en AI-toepassingen. Als marktleider in energie-efficiëntie voor PCIe Gen 5 maakt de WD_BLACK SN8100 NVMe SSD gebruik van geavanceerde TLC 3D CBA NAND-technologie om prestaties en betrouwbaarheid te garanderen, terwijl een laag energieverbruik en geoptimaliseerde thermische prestaties je systeem koel en soepel laten draaien. Met tot 4TB opslagruimte en een reeks krachtige functies is deze SSD de ultieme upgrade voor veeleisende gebruikers.<ul><li><strong>ERVAAR PCIe Gen 5.</strong> Verbeter je game- en contentcreatie-ervaring drastisch met deze PCIe Gen 5.0x4 NVMe M.2 SSD</li><li><strong>ONGEKENDE SNELHEDEN.</strong> Je schijf bereikt sequentiële leessnelheden tot een verbluffende 14.900MB/s en schrijfsnelheden tot 14.000MB/s</li><li><strong>GEAVANCEERDE BETROUWBAARHEID.</strong> WD's nieuwste TLC 3D CBA NAND-technologie zorgt voor een geweldige ervaring, of je nu gamet of werkt.</li><li><strong>MARKTLEIDER IN ENERGIE-EFFICIËNTIE.</strong> Geniet van meer dan 100% hogere energie-efficiëntie dan WDs PCIe Gen 4-schijf. Gemiddeld energieverbruik van 7W of minder.</li></ul>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-comming"></div>
+                    <div class="site-stock-text">Bestelproduct, 7 - 8 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">767,52 €</span>
+                            <span class="hidden-xs">(634,31 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3368911" />
+                            <input name="token" type="hidden" value="cea76bc3a163" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3368911">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3368911</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-KC3000-SSD-512GB-PCIe-40-M2-2280/3009840" title="Kingston KC3000 SSD - 512GB - PCIe 4.0 - M.2 2280 - SKC3000S/512G"><img alt="SSD - Kingston KC3000 SSD - 512GB - PCIe 4.0 - M.2 2280 - SKC3000S/512G" class="lazy" data-src="/Images/174x116/3009840_521b76fccff7.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S26246019" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-KC3000-SSD-512GB-PCIe-40-M2-2280/3009840">
+                    <h2 product-display-name>Kingston KC3000 SSD - 512GB - PCIe 4.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid state drive), 512 GB, intern, <strong>Gegevenssnelheid:</strong> 7000 MBps (lezen) / 3900 MBps (schrijven), <strong>IOPS:</strong> 450000 (lezen) / 900000 (schrijven), M.2 2280 (80mm), PCI-Express 4.0 x4 NVMe 1.3 (Non-Volatile Memory Express) - Phison PS5018-E18 Controller
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-comming"></div>
+                    <div class="site-stock-text">Bestelproduct, 7 - 8 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">139,94 €</span>
+                            <span class="hidden-xs">(115,65 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3009840" />
+                            <input name="token" type="hidden" value="0aa191dddfd3" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3009840">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3009840</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Lexar-NM790-SSD-2TB-M2-2280-PCIe-40-Zonder-heatsink/3191302" title="Lexar NM790 SSD - 2TB - M.2 2280 - PCIe 4.0 - Zonder heatsink - LNM790X002T-RNNNG"><img alt="SSD - Lexar NM790 SSD - 2TB - M.2 2280 - PCIe 4.0 - Zonder heatsink - LNM790X002T-RNNNG" class="lazy" data-src="/Images/174x116/3191302_4955954e91fa.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S27997177" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Lexar-NM790-SSD-2TB-M2-2280-PCIe-40-Zonder-heatsink/3191302">
+                    <h2 product-display-name>Lexar NM790 SSD - 2TB - M.2 2280 - PCIe 4.0 - Zonder heatsink</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 2 TB, intern, <strong>overdracht snelheid:</strong> 7400 MB/s (lezen) / 6500 MB/s (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">311,74 €</span>
+                            <span class="hidden-xs">(257,64 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3191302" />
+                            <input name="token" type="hidden" value="b5798d990d65" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3191302">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3191302</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-XS2000-Portable-SSD-1TB-External-SSD-USB-C/2991517" title="Kingston XS2000 Portable SSD - 1TB - External hard drive SSD - USB-C - SXS2000/1000G"><img alt="SSD - Kingston XS2000 Portable SSD - 1TB - External hard drive SSD - USB-C - SXS2000/1000G" class="lazy" data-src="/Images/174x116/2991517_74b98ad96d56.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S25902423" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-XS2000-Portable-SSD-1TB-External-SSD-USB-C/2991517">
+                    <h2 product-display-name>Kingston XS2000 Portable SSD - 1TB - External hard drive SSD - USB-C</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid state drive), 1 TB, extern (draagbaar), USB 3.1 Type C<br /><ul><li>Snelheden tot 2.000MB/s1 met USB 3.2 Gen 2x2</li><li>Compacte, zakformaat vormfactor (69,54 x 32,58 x 13,5 mm)</li><li>IP55-classificatie4 met verwijderbare rubberen hoes</li></ul>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">165,69 €</span>
+                            <span class="hidden-xs">(136,93 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="2991517" />
+                            <input name="token" type="hidden" value="5183bd77e34b" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="2991517">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">2991517</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Lexar-NM990-SSD-4TB-M2-2280-PCIe-50/3397119" title="Lexar NM990 SSD - 4TB - M.2 2280 - PCIe 5.0 - LNM990X004T-RNNNG"><img alt="SSD - Lexar NM990 SSD - 4TB - M.2 2280 - PCIe 5.0 - LNM990X004T-RNNNG" class="lazy" data-src="/Images/174x116/3397119_c7eaa00ca7fe.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S30620805" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Lexar-NM990-SSD-4TB-M2-2280-PCIe-50/3397119">
+                    <h2 product-display-name>Lexar NM990 SSD - 4TB - M.2 2280 - PCIe 5.0</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 4 TB, intern, <strong>overdracht snelheid:</strong> 14000 MB/s (lezen) / 11000 MB/s (schrijven), <strong>IOPS:</strong> 2000000 IOPS (lezen) / 1500000 IOPS (schrijven), maat: M.2 2280 (80mm), PCI-Express 5.0 x4 verbinding, NVMe 2.0 (Non-Volatile Memory Express), DirectStorage compatibel, software: Lexar DiskMaster, kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">529,41 €</span>
+                            <span class="hidden-xs">(437,53 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3397119" />
+                            <input name="token" type="hidden" value="aa2268da5edf" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3397119">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3397119</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Samsung-990-Pro-SSD-2TB-Met-heatsink-M2-2280-PCIe-40/3173145" title="Samsung 990 Pro SSD - 2TB - Met heatsink - M.2 2280 - PCIe 4.0 - MZ-V9P2T0CW / GW"><img alt="SSD - Samsung 990 Pro SSD - 2TB - Met heatsink - M.2 2280 - PCIe 4.0 - MZ-V9P2T0CW / GW" class="lazy" data-src="/Images/174x116/3173145_bc2daa49d636.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S27269224" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Samsung-990-Pro-SSD-2TB-Met-heatsink-M2-2280-PCIe-40/3173145">
+                    <h2 product-display-name>Samsung 990 Pro SSD - 2TB - Met heatsink - M.2 2280 - PCIe 4.0</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 2 TB, intern, <strong>overdracht snelheid:</strong> 7450 MB/s (lezen) / 6900 MB/s (schrijven), <strong>IOPS:</strong> 1400000 IOPS (lezen) / 1550000 IOPS (schrijven), 2GB LPDDR4 RAM, maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 2.0 (Non-Volatile Memory Express), hardware-encryptie: 256 bit / TCG Opal, DirectStorage compatibel, Samsung Pascal S4LV008 controller, <strong>NB!</strong> Grootverpakking (zonder accessoires), kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">421,03 €</span>
+                            <span class="hidden-xs">(347,96 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3173145" />
+                            <input name="token" type="hidden" value="2bb7f1f6bb9a" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3173145">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3173145</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/Dolls-Accessories/Barbie-Nutcracker-Deluxe-Feature-Doll-Clara/3484328" title="Barbie Nutcracker Deluxe Feature Doll Clara - JLW53"><img alt="Dolls &amp; Accessories - Barbie Nutcracker Deluxe Feature Doll Clara - JLW53" class="lazy" data-src="/Images/174x116/3484328_f850baa0c555.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/Dolls-Accessories/Barbie-Nutcracker-Deluxe-Feature-Doll-Clara/3484328">
+                    <h2 product-display-name>Barbie Nutcracker Deluxe Feature Doll Clara</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        <p>Modepop Barbie Nutcracker Deluxe Feature Doll Clara brengt balletspel tot leven met 7 beweegbare gewrichten, een transformerende tutu en sierlijke accessoires.</p><p>Dans en pointe naast de Sugar Plum Fairies terwijl je haar armen optilt, haar ronddraait en haar keer op keer ziet dansen. Tijdens de draai verandert de tutu op magische wijze in een rok met een regenboogkleurige print geïnspireerd op zoete lekkernijen uit het Land of Sweets, terwijl het glanzende ombré-lijfje is afgewerkt met ruches, kant en strikdetails.</p><ul><li>7 beweegbare gewrichten voor elegant poseren</li><li>Tutu transformeert tijdens draaien in een rok met regenboogprint</li><li>Glanzend ombré-lijfje met ruches, kant en strikdetails</li><li>Inclusief sierlijke strik-haarband en hartmedaillonketting</li><li>Wordt geleverd in een mooie geschenkdoos</li><li>Aanbevolen leeftijd: 3 jaar+</li></ul><p>Ontworpen voor betoverend dansspel en display-geïnspireerde styling, met kleuren en decoraties die kunnen variëren.</p>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">31,07 €</span>
+                            <span class="hidden-xs">(25,68 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3484328" />
+                            <input name="token" type="hidden" value="df9ad19f1199" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3484328">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3484328</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Lexar-NM790-SSD-4TB-M2-2280-PCIe-40-Zonder-heatsink/3191304" title="Lexar NM790 SSD - 4TB - M.2 2280 - PCIe 4.0 - Zonder heatsink - LNM790X004T-RNNNG"><img alt="SSD - Lexar NM790 SSD - 4TB - M.2 2280 - PCIe 4.0 - Zonder heatsink - LNM790X004T-RNNNG" class="lazy" data-src="/Images/174x116/3191304_882c25f21b1d.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S28171003" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Lexar-NM790-SSD-4TB-M2-2280-PCIe-40-Zonder-heatsink/3191304">
+                    <h2 product-display-name>Lexar NM790 SSD - 4TB - M.2 2280 - PCIe 4.0 - Zonder heatsink</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 4 TB, intern, <strong>overdracht snelheid:</strong> 7400 MB/s (lezen) / 6500 MB/s (schrijven), maat: M.2 2280 (80mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Extern magazijn, 3 - 4 werkdagen levertijd (verwacht in eigen magazijn 5-10-2026)</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">504,78 €</span>
+                            <span class="hidden-xs">(417,17 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3191304" />
+                            <input name="token" type="hidden" value="d44a3035d9b6" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3191304">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3191304</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Samsung-Portable-SSD-T7-Shield-4TB-Zwart-External-hard-drive-SSD-USB-32-Gen-2/3138939" title="Samsung Portable SSD T7 Shield - 4TB - Zwart - External hard drive SSD - USB 3.2 Gen 2 - MU-PE4T0S/EU"><img alt="SSD - Samsung Portable SSD T7 Shield - 4TB - Zwart - External hard drive SSD - USB 3.2 Gen 2 - MU-PE4T0S/EU" class="lazy" data-src="/Images/174x116/3138939_cf19142ef43e.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S27382317" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Samsung-Portable-SSD-T7-Shield-4TB-Zwart-External-hard-drive-SSD-USB-32-Gen-2/3138939">
+                    <h2 product-display-name>Samsung Portable SSD T7 Shield - 4TB - Zwart - External hard drive SSD - USB 3.2 Gen 2</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD, gecodeerd, 4 TB, extern (draagbaar), USB 3.2 Gen 2 (USB-C aansluiting), 256-bits AES, zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">871,68 €</span>
+                            <span class="hidden-xs">(720,40 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3138939" />
+                            <input name="token" type="hidden" value="f49ca9caa5b1" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3138939">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3138939</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Verbatim-Vi3000-SSD-256GB-PCIe-30-M2-2280/3205849" title="Verbatim Vi3000 SSD - 256GB - PCIe 3.0 - M.2 2280 - 49373"><img alt="SSD - Verbatim Vi3000 SSD - 256GB - PCIe 3.0 - M.2 2280 - 49373" class="lazy" data-src="/Images/174x116/3205849_97964e9f3bad.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S27763513" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Verbatim-Vi3000-SSD-256GB-PCIe-30-M2-2280/3205849">
+                    <h2 product-display-name>Verbatim Vi3000 SSD - 256GB - PCIe 3.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 256 GB, intern, <strong>overdracht snelheid:</strong> 3100 MB/s (lezen) / 1300 MB/s (schrijven), <strong>IOPS:</strong> 100000 IOPS (lezen) / 100000 IOPS (schrijven), maat: M.2 2280 (80mm), PCI-Express 3.0 x4 verbinding, NVMe 1.3 (Non-Volatile Memory Express), kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">70,75 €</span>
+                            <span class="hidden-xs">(58,47 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3205849" />
+                            <input name="token" type="hidden" value="0ae780b5ece9" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3205849">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3205849</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/PNY-CS900-SSD-2TB-SATA-600-25/2970257" title="PNY CS900 SSD - 2TB - SATA-600 - 2.5&quot; - SSD7CS900-2TB-RB"><img alt="SSD - PNY CS900 SSD - 2TB - SATA-600 - 2.5&quot; - SSD7CS900-2TB-RB" class="lazy" data-src="/Images/174x116/2970257_ba860cf60fc0.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S24419810" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/PNY-CS900-SSD-2TB-SATA-600-25/2970257">
+                    <h2 product-display-name>PNY CS900 SSD - 2TB - SATA-600 - 2.5&quot;</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 2 TB, intern, <strong>overdracht snelheid:</strong> 550 MB/s (lezen) / 530 MB/s (schrijven), maat: 2.5", SATA-600 verbinding, <strong>NB!</strong> Grootverpakking (zonder accessoires), kleur: zwart
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">235,48 €</span>
+                            <span class="hidden-xs">(194,61 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="2970257" />
+                            <input name="token" type="hidden" value="a4a25f2521b8" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="2970257">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">2970257</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-KC3000-SSD-1TB-PCIe-40-M2-2280/3009841" title="Kingston KC3000 SSD - 1TB - PCIe 4.0 - M.2 2280 - SKC3000S/1024G"><img alt="SSD - Kingston KC3000 SSD - 1TB - PCIe 4.0 - M.2 2280 - SKC3000S/1024G" class="lazy" data-src="/Images/174x116/3009841_48a023fd9cce.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S26246020" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-KC3000-SSD-1TB-PCIe-40-M2-2280/3009841">
+                    <h2 product-display-name>Kingston KC3000 SSD - 1TB - PCIe 4.0 - M.2 2280</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid state drive), 1 TB, intern, <strong>Gegevenssnelheid:</strong> 7000 MBps (lezen) / 6000 MBps (schrijven), <strong>IOPS:</strong> 900000 (lezen) / 1000000 (schrijven), M.2 2280 (80mm), PCI-Express 4.0 x4 NVMe 1.3 (Non-Volatile Memory Express) - Phison PS5018-E18 Controller
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">214,65 €</span>
+                            <span class="hidden-xs">(177,40 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3009841" />
+                            <input name="token" type="hidden" value="24e00c370fde" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3009841">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3009841</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Intenso-SSD-Top-128GB-M2-2280-SATA-600/2628889" title="Intenso SSD Top - 128GB - M.2 2280 - SATA-600 - 3832430"><img alt="SSD - Intenso SSD Top - 128GB - M.2 2280 - SATA-600 - 3832430" class="lazy" data-src="/Images/174x116/2628889_fa979666c74d.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S19743063" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Intenso-SSD-Top-128GB-M2-2280-SATA-600/2628889">
+                    <h2 product-display-name>Intenso SSD Top - 128GB - M.2 2280 - SATA-600</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        Solid state drive, 128 GB, intern, M.2 2280, SATA 6Gb/s
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">26,77 €</span>
+                            <span class="hidden-xs">(22,12 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="2628889" />
+                            <input name="token" type="hidden" value="f51f9d4a8310" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="2628889">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">2628889</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/Actiecamera/GoPro-MISSION-1-PRO-Ultimate-Creator-Edition/3505778" title="GoPro MISSION 1 PRO Ultimate Creator Edition - CHDRW-013-RW"><img alt="Actiecamera - GoPro MISSION 1 PRO Ultimate Creator Edition - CHDRW-013-RW" class="lazy" data-src="/Images/174x116/3505778_91b6eb5b5fa8.jpg" height="116" width="174" /></a>
+                    <div data-energy data-cpn="" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">DEALS</span>
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+                    <span class="site-image-badge-nostyle site-image-badge-default">INCL. ENDURO 2 BATTERY</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/Actiecamera/GoPro-MISSION-1-PRO-Ultimate-Creator-Edition/3505778">
+                    <h2 product-display-name>GoPro MISSION 1 PRO Ultimate Creator Edition</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        <p>Actioncamerabundel voor creators met GoPro MISSION 1 PRO, 3-assige gemotoriseerde stabilisatie, premium audio voor twee personen, flexibele verlichting, video tot 8K60 en HyperSmooth-videostabilisatie.</p><p>MISSION 1 PRO is gebouwd voor cinematografische opnames en combineert geavanceerde prestaties bij weinig licht, een next-generation GP3-processor, 50MP-foto’s, slowmotion-videomodi en robuust waterdicht gebruik tot 20 m.</p><ul><li>Inclusief Fluid Pro AI, Wireless Mic Complete Kit, Media Mod en Light Mod 2</li><li>Neemt 4K-video op met 8x slow motion en 1080p-video met 32x slow motion</li><li>Ondersteunt 8K Open Gate, HLG HDR en tot 240Mbps bit-rate</li><li>Voorzien van ingebouwde GPS, spraakbediening en live streaming</li></ul><p>Met de meegeleverde creator-accessoires en flexibele opnamemodi helpt het je stabiele video, helder geluid en creatieve shots vast te leggen in meer omstandigheden.</p>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">1.199,99 €</span>
+                            <span class="hidden-xs">(991,73 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3505778" />
+                            <input name="token" type="hidden" value="6b04071f299e" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3505778">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3505778</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+        <li class="site-productlist-item site-customerCenterCard position-relative" product>
+            <div class="mr-2">
+                <a class="show" href="/SSD/Kingston-NV3-SSD-500GB-PCIe-40-M2-2230/3388172" title="Kingston NV3 SSD - 500GB - PCIe 4.0 - M.2 2230 - SNV3SM3/500G"><img alt="SSD - Kingston NV3 SSD - 500GB - PCIe 4.0 - M.2 2230 - SNV3SM3/500G" class="lazy" data-src="/Images/174x116/3388172_d1b20efe3551.png" height="116" width="174" /></a>
+                    <div data-energy data-cpn="S30656290" data-zoom="50" class="hidden pl-2 pt-2">
+                        <img /><br /><button class="btn-link p-0"><span class="site-energy-datasheet">Data sheet</span></button>
+                    </div>
+            </div>
+            <div class="site-productTextContainer position-relative">
+    <div class="badge-gradient-wrapper position-relative" style="overflow: hidden;" >
+        <div class="site-image-badge-container-lg" ref="badgeContainers">
+                    <span class="site-image-badge-nostyle site-image-badge-default">HOT</span>
+        </div>
+        <div class="gradient-left" style="display:none;"></div>
+        <div class="gradient-right" style="display:none;"></div>
+    </div>
+
+                <a class="site-product-link" href="/SSD/Kingston-NV3-SSD-500GB-PCIe-40-M2-2230/3388172">
+                    <h2 product-display-name>Kingston NV3 SSD - 500GB - PCIe 4.0 - M.2 2230</h2>
+                    <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                        SSD (Solid State Drive), 500 GB, intern, <strong>overdracht snelheid:</strong> 6000 MB/s (lezen) / 2200 MB/s (schrijven), maat: M.2 2230 (30mm), PCI-Express 4.0 x4 verbinding, NVMe 1.4 (Non-Volatile Memory Express), Silicon Motion SM2268XT2 controller, software: Acronis cloning software<br /><br /> • Kingston's NV3 PCIe 4.0 NVMe SSD's zijn opslagoplossingen van de nieuwe generatie, aangedreven door een Gen 4x4 NVMe-controller die lees-/schrijfsnelheden tot 6.000/5.000MB/s levert. Verkrijgbaar in compacte, enkelzijdige M.2 2280 (22x80mm) en 2230 (22x30mm) formaten, ideaal om opslagruimte uit te breiden in kleine systemen zoals laptops en handheld gameconsoles. Ze bieden een lager energieverbruik en minder warmteontwikkeling, waardoor de systeemprestaties worden geoptimaliseerd zonder concessies aan de prijs-kwaliteitverhouding. Verkrijgbaar in capaciteiten van 500GB - 4TB voor al je applicaties, documenten, foto's, video's, games en meer.<ul><li><strong>Gen 4x4 NVMe PCIe-prestaties:</strong> Upgrade je systeem met lees-/schrijfsnelheden tot 6.000/5.000MB/s.</li><li><strong>Kleine maat, grote prestaties:</strong> NV3 2280 en 2230 passen eenvoudig in dunne laptops en ultracompacte pc's met M.2-aansluitingen en beperkte ruimte.</li><li><strong>Vergrote opslagruimte:</strong> Verkrijgbaar in hoge capaciteiten tot 4TB, ruim voldoende voor bestanden, video's, documenten en games.</li><li><strong>Meer opslaan, meer spelen:</strong> Upgrade compatibele handheld spelsystemen met de NV3 2230 voor snellere toegang tot je games.</li></ul>
+                    </div>
+                </a>
+                <div class="d-flex site-stock m t-2">
+                    <div class="site-stock-icon site-icon-stock-in"></div>
+                    <div class="site-stock-text">Op voorraad - 2-3 werkdagen levertijd</div>
+                </div>
+            </div>
+            <div class="priceContainer">
+                <div class="mt-2 price-container mb-2">
+
+
+                                <span class="site-currency-lg">146,39 €</span>
+                            <span class="hidden-xs">(120,98 €)</span>
+                </div>
+                <div class="d-flex justify-content-around">
+                        <form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+                            <input name="productId" type="hidden" value="3388172" />
+                            <input name="token" type="hidden" value="643d1a24e53f" />
+                                <button class="btn site-btn-tall site-btn-green w-100" type="submit" data-gtm-item-id="3388172">
+                                    <i class="ki ki-s pi-cart-fill"></i>&nbsp;<span class="">Bestel</span>
+                                </button>
+                            <small class="mt-1 d-block hidden-xs text-center">3388172</small>
+                        </form>
+                </div>
+            </div>
+            
+        </li>
+    
+</ul>
+
+
+
+    <div>
+        <nav class="text-center mt-3">
+            <ul class="pagination d-inline-block">
+                                                        <li class="active"><a href="/" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">1</a></li>
+                            <li><a href="/?pn=2" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">2</a></li>
+                            <li><a href="/?pn=3" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">3</a></li>
+                            <li><a href="/?pn=4" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">4</a></li>
+                            <li><a href="/?pn=5" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">5</a></li>
+                                    <li><span class="position-relative pull-left d-flex justify-content-center align-items-center noborder">...</span></li>
+                    <li><a href="/?pn=400" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center" target="_self">400</a></li>
+                                    <li><a href="/?pn=2" rel="follow" class="hidden-xs position-relative pull-left d-flex justify-content-center align-items-center"><span class="position-relative pull-left d-flex justify-content-center align-items-center">&raquo;</span></a></li>
+            </ul>
+
+        </nav>
+    </div>
+
+</div>
+    </div>
+
+    </main>
+</div>
+        </div>
+        
+    </div>
+    <footer class="footer position-relative" role="contentinfo">
+<div class="footer__top py-4">
+    <div class="ps-container">
+        <div class="site-footer-newsletterContainer">
+<div class="f-white">
+    Meld je aan voor onze nieuwsbrief en ontvang speciale aanbiedingen en informatie over prijsvragen.
+</div>
+<div class="p-2">
+<form action="/CustomerCenter/Newsletter/Subscribe" class="input-newsletter position-relative w-100" method="get"><input name="__RequestVerificationToken" type="hidden" value="-GCrTF7__A7KCJOu8VNluKNRMI1p85I1fFG820iJFcAjAGoyggR1sVFIMq722Q1s99jNZRpE2g0CcelZfVzyonoQI6WfCE4KNlT2hnUbKEI1" />        <input name="Email" class="input__round-lg w-100 pr-5" type="email" placeholder="vul je e-mail adres in">
+<input id="source" name="source" type="hidden" value="WebsiteForm" />        <button type="submit" aria-label="Newsletter Subscribe" class="input__round-btn position-absolute d-flex justify-content-center align-items-center">
+            <i class="pi-sm pi pi-send-mail rotate45"></i>
+        </button>
+</form></div>
+                <div class="socialLinksContainer">
+                    <div class="socialLinks">
+                            <a class="px-half" rel="noreferrer" href="https://www.facebook.com/proshop.nl/" target="_blank" title="Vind ons: Facebook"><img class="lazy soci-icon" width="40" height="40" data-src="/Content/images/SVG/facebook.svg" src="" alt="Facebook" /></a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="pl-2 pr-2 ps-container">
+    <div class="ps-container__inner ps__template--footer">
+        <div class="footer__contact footer__accordion-item active">
+                <div class="display-5 footer__header d-flex"><span class="align-items-center"><i class="pi-sm pi pi-headphones-b mr-1"></i>Telefoontijden</span><button class="d-flex footer__toggle" data-toggle="true" aria-expanded="true" aria-controls="accordion__section-0"><div class="align-items-center text-left d-flex"><i class="pi-sm pi pi-headphones-b mr-1"></i>Telefoontijden</div> <i class="ki pi-xs pi-chevron-down"></i></button></div>
+                <div id="accordion__section-0" class="footer__accordion-list">
+                    <table width="100%">
+<tbody>
+<tr>
+<td>Maandag - Donderdag:</td>
+<td>09:00 - 15:00</td>
+</tr>
+<tr>
+<td>Vrijdag:</td>
+<td>09:00 - 15:00</td>
+</tr>
+<tr>
+<td>Weekend en Deense feestdagen:</td>
+<td>Gesloten</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Telefoon:</td>
+<td><a href="tel:085 301 55 55">085 301 55 55</a></td>
+</tr>
+<tr>
+<td>Email particulier:</td>
+<td><a href="/cdn-cgi/l/email-protection#14676164647b66605464667b677c7b643a7a78"><span class="__cf_email__" data-cfemail="dfacaaafafb0adab9fafadb0acb7b0aff1b1b3">[email&#160;protected]</span></a></td>
+</tr>
+<tr>
+<td>Email zakelijk:</td>
+<td><a href="/cdn-cgi/l/email-protection#325000507242405d415a5d421c5c5e"><span class="__cf_email__" data-cfemail="345606567444465b475c5b441a5a58">[email&#160;protected]</span></a></td>
+</tr>
+</tbody>
+</table>
+                </div>
+        </div>
+        <div class="footer__support footer__accordion-item">
+            <div class="display-5 footer__header d-flex">
+                <span>Klantenservice</span>
+                <button class="d-flex footer__toggle" data-toggle="true" aria-expanded="false" aria-controls="accordion__section-1">
+                    Klantenservice
+                    <i class="ki-s pi-chev-right svg-fill-red"></i>
+                </button>
+            </div>
+            <ul id="accordion__section-1" class="footer__accordion-list list-unstyled arrow__list">
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Betaling.htm" >Betaling</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Instructies.htm" >Instructies</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Levering.htm" >Levering</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Klachten-Garantie-Reparatie.htm" >Klachten, Garantie &amp; Reparatie</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Veelgestelde-vragenFAQ.htm" >Veelgestelde vragen/FAQ</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Algemene-voorwaarden.htm" >Algemene voorwaarden</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Privacybeleid.htm" >Privacybeleid</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Retour-en-herroepingsrecht.htm" >Retour en herroepingsrecht</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Black-Friday" >Black Friday 2026</a>
+                    </li>
+            </ul>
+        </div>
+        <div class="footer__myProshop footer__accordion-item">
+            <div class="display-5 footer__header d-flex">
+                <span>Mijn pagina</span>
+                <button class="d-flex footer__toggle" data-toggle="true" aria-expanded="false" aria-controls="accordion__section-2">
+                    Mijn pagina
+                    <i class="ki-s pi-chev-right svg-fill-red"></i>
+                </button>
+            </div>
+            <ul id="accordion__section-2" class="footer__accordion-list list-unstyled arrow__list">
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/CustomerCenter" rel=nofollow>Mijn Proshop</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/CustomerCenter/Rma/Login" >Klacht indienen</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/CustomerCenter/CustomerReturn/StartReturnCase" >Herroeping melden</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/CustomerCenter/Account" rel=nofollow>Bestelgeschiedenis</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="https://auth.proshop.nl/Identity/Account/ForgotPassword" >Wachtwoord vergeten</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="ki-s pi-chev-right bg-black"></i>
+                        <a href="/Transportschade.htm" >Transportschade</a>
+                    </li>
+            </ul>
+        </div>
+        <div class="footer__address">
+                <div class="footer__accordion-item">
+                    <div class="display-5 footer__header d-flex">
+                        <span>Contact</span>
+                        <button class="d-flex footer__toggle" data-toggle="true" aria-expanded="false" aria-controls="accordion__section-3">
+                            Contact
+                            <i class="ki-s pi-chev-right svg-fill-red"></i>
+                        </button>
+                    </div>
+                    <div id="accordion__section-3" class="footer__accordion-list">
+                        Proshop a/s<br />Slet Møllevej 17<br />DK-8270 Højbjerg<br />Denemarken<br />CVR: 18966239<br />Btw-id: DK18966239 EU 2021 One Stop Shop (OSS)<br /><a href="/cdn-cgi/l/email-protection#8dfef8fdfde2fff9cdfdffe2fee5e2fda3e3e1"><span class="__cf_email__" data-cfemail="f784828787988583b7878598849f9887d9999b">[email&#160;protected]</span></a><br /><br />
+                        <ul class="list-unstyled arrow__list">
+                                <li class="d-flex align-items-center">
+                                    <i class="ki-s pi-chev-right bg-black"></i>
+                                    <a href="/Over-ons.htm" >Over ons</a>
+                                </li>
+                        </ul>
+                        <div class="pt-2 clearfix">
+                            
+       <div class="menu-button-links pull-left btn-group position-relative">
+        <a id="dropdown-lang" href="#" aria-controls="languageMenu" class="familyRelationsDropdownBtn dropdown btn site-btn-between site-btn-white site-btn-hasborder dropdown-toggle langDropDownBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ki-m pi pi-globe mr-1"></i>
+            <p>Landen</p>
+            <i class="ki-s pi-chev-right bg-black rotate90 ml-1"></i>
+        </a>
+        <ul id="languageMenu" role="menu" aria-labelledby="dropdown-lang" class="dropdown__list dropdown-menu familyRelationsDropdown langDropDown">
+                <li role="none">
+                    <a href="//www.proshop.at">
+                        proshop.at
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="//www.proshop.fi">
+                        proshop.fi
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="//www.proshop.pl">
+                        proshop.pl
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="//www.proshop.se">
+                        proshop.se
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="//www.proshop.no">
+                        proshop.no
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="//www.proshop.de">
+                        proshop.de
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="//www.proshop.dk">
+                        proshop.dk
+                    </a>
+                </li>
+        </ul>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    <div class="pl-2 pr-2 ps-container"><div class="d-flex footer-row__flex pb-4 pt-2 footer__border justify-content-center">    <div class="site-campaignElement" data-campaign-element-id="4669dbb1-8b36-42b9-9a00-bfe64f2031a5">
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="" data-consent-src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=Tqz4EF" data-category-consent="cookie_cat_marketing"></script><script>var _learnq=_learnq||[];_learnq.push(["track","Visited webpage",{url:window.location.href,name:document.title}])</script><style>.tww_popup__logo>.tww_popup__image{height:70px}</style><script async src="" data-consent-src="//widget.thuiswinkel.org/script.js?id=NTU0Ny0y" data-category-consent="cookie_cat_marketing"></script><div class="tww_popup_wrapper_NTU0Ny0y"></div>
+    </div>
+</div></div>
+<div class="footer__bottom">
+    <div class="pl-2 pr-2 ps-container">
+        <div class="d-flex footer-row__flex pt-4 pb-2 justify-content-between align-items-center">
+            <div class="text-center flex-center">
+                        <div class="d-flex mb-2 mx-1">
+                            <img class="lazy" data-src="/content/images/delivery/DPD.svg" alt="DPD" />
+                        </div>
+            </div>
+            <div class="text-center flex-center flex-wrap">
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/Visa.svg" alt="Visa" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/iban-overboeking.svg" alt="Iban Overboeking" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/MasterCard.svg" alt="Mastercard" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/apple-pay.svg" alt="Apple Pay" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/google-pay.svg" alt="Google Pay" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/PayPal.svg" alt="PayPal" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/ideal-logo.svg" alt="Ideal" />
+                        </div>
+                        <div class="d-flex footer__payment mb-2">
+                            <img class="lazy" data-src="/content/images/cards-svg/Klarna.svg" alt="Klarna" />
+                        </div>
+            </div>
+        </div>
+    </div>
+    <div id="auctionsMenu" class="d-flex pl-2 pr-2 ps-container"></div>
+</div>
+<script type="text/javascript">
+    let footerToggle = document.querySelectorAll("[data-toggle='true']");
+    for (var i = 0; i < footerToggle.length; i++) {
+        footerToggle[i].addEventListener('click', function (e) {
+            e.currentTarget.closest('.footer__accordion-item').classList.toggle('active');
+            this.toggleAttribute('aria-expanded="true"');
+        });
+    }
+</script></footer>
+    
+    
+    <div id="fixedBottomMessage"></div>
+    
+    
+    
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cssFiles = [
+      
+        '/dist/Proshop/under.dca32090.css',
+      
+    ];
+
+    cssFiles.forEach(function(href) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.media = 'print';
+      link.onload = function(){
+        this.media = 'all';
+      }
+      document.head.appendChild(link);
+    });
+  });
+</script>
+<noscript>
+  
+    <link rel="stylesheet" href="/dist/Proshop/under.dca32090.css">
+  
+</noscript>
+    
+
+
+    <script type="text/javascript" language="javascript">
+        var rsa;var raptorLoaded = function (raptor) { rsa = raptor; raptor.initialize({ customerID: "6554", productIdParamIndex: 2, eventTypeParamIndex: 1, useCookies: Consent.isValid('marketing') });
+            var raptorUserId = '';var userId = $('#minibasket').data('customerid');
+            console.log("Raptor **************: " + userId);if (raptorUserId.length > 0) userId = raptorUserId;else if (userId === '0') userId = ''; raptor.trackEvent("visit", "", "", "", "", "", userId, "", "", "", "", "");
+        };
+    </script>
+   
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4418bbc794d49b9',t:'MTc5MDkyMTQ0NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"87d16c5a416a41a6b98d955ddec448b2","spa":2}' crossorigin="anonymous"></script>
+</body>
+
+ </html>

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Open pricewatch in een terminal. Het paneel roept dit aan als je op "a"
+# drukt, want vanuit de bar kun je geen tekst typen.
+#
+#   pricewatch-terminal add
+#   pricewatch-terminal list
+#   pricewatch-terminal check --notify
+#
+# Zoekt zelf een terminal die deze machine heeft; geen dependencies.
+set -euo pipefail
+
+SELF="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/pricewatch"
+
+if [[ ! -x $SELF ]]; then
+  printf 'pricewatch-terminal: %s niet gevonden\n' "$SELF" >&2
+  exit 1
+fi
+
+# Terminal, en de manier waarop je er een commando mee start.
+for entry in \
+  "foot:-e" \
+  "alacritty:-e" \
+  "kitty:--" \
+  "ghostty:-e" \
+  "wezterm:start" \
+  "konsole:-e" \
+  "gnome-terminal:--" \
+  "xterm:-e"
+do
+  terminal=${entry%%:*}
+  mode=${entry#*:}
+  path=$(command -v "$terminal" 2>/dev/null) || continue
+  if [[ $mode == "start" ]]; then
+    exec "$path" start -- "$SELF" "$@"
+  fi
+  exec "$path" "$mode" "$SELF" "$@"
+done
+
+printf 'geen terminal gevonden (foot, alacritty, kitty, ghostty, wezterm, konsole, gnome-terminal, xterm)\n' >&2
+printf 'voer het zelf in je shell:\n\n  %s %s\n\n' "$SELF" "$*" >&2
+exit 1
