@@ -280,6 +280,84 @@ class TestRunLock(CheckerTestCase):
             other.close()
 
 
+class TestHaperingen(CheckerTestCase):
+    """Een hapering kost hooguit die ene winkel, nooit de hele ronde."""
+
+    def test_onverwachte_fout_in_een_winkel_stopt_de_ronde_niet(self):
+        # Een afgekapt antwoord hoort als fout bij die winkel te staan, niet als
+        # uitzondering uit de check te komen.
+        import http.client
+
+        watch, amazon, coolblue = self.watch()
+        self.net.prices[amazon["id"]] = 249.0
+        real_fetch_offer = checker.fetch_offer
+
+        def haper(offer, want, timeout=12.0):
+            if offer["shop"] == "coolblue":
+                raise http.client.IncompleteRead(b"", 10)
+            return real_fetch_offer(offer, want, timeout)
+
+        checker.fetch_offer = haper
+        self.addCleanup(setattr, checker, "fetch_offer", real_fetch_offer)
+        result = checker.check_watch(self.store, watch)
+        self.assertEqual(result.best_price, 249.0)
+        self.assertIn("onverwachte fout", result.errors[0])
+
+    def test_alle_winkels_falen_houdt_de_vorige_beste_prijs(self):
+        # De nieuwste prijsregel is de laatst weggeschreven winkel, niet de
+        # goedkoopste. Een ronde waarin niemand antwoordt mag de beste prijs dus
+        # niet van Amazon naar de duurdere Coolblue laten verspringen.
+        watch, amazon, coolblue = self.watch()
+        self.net.prices[amazon["id"]] = 199.0
+        self.net.prices[coolblue["id"]] = 219.0
+        self.assertEqual(checker.check_watch(self.store, watch).best_price, 199.0)
+        self.net.errors[amazon["id"]] = "netwerkfout: timed out"
+        self.net.errors[coolblue["id"]] = "shop houdt ons tegen (403)"
+        result = checker.check_watch(self.store, self.store.watch(watch["id"]))
+        opgeslagen = self.store.watch(watch["id"])
+        self.assertEqual(result.best_price, 199.0)
+        self.assertEqual(opgeslagen["best_price"], 199.0, "een winkel die zwijgt is geen stijging")
+        self.assertEqual(opgeslagen["best_shop"], "amazon-nl")
+
+    def test_check_all_slaat_een_watch_over_die_klapt(self):
+        first, amazon, _ = self.watch("AirPods Pro 2")
+        second, coolblue, _ = self.watch("MX Master 3S")
+        self.net.prices[amazon["id"]] = 249.0
+        self.net.prices[coolblue["id"]] = 79.0
+        real = checker.check_watch
+
+        def klapt(store, watch, **kwargs):
+            if watch["id"] == first["id"]:
+                raise RuntimeError("boem")
+            return real(store, watch, **kwargs)
+
+        checker.check_watch = klapt
+        self.addCleanup(setattr, checker, "check_watch", real)
+        results = checker.check_all(self.store)
+        self.assertEqual([r.watch_id for r in results], [first["id"], second["id"]])
+        self.assertEqual(results[1].best_price, 79.0)
+        self.assertIn("check mislukt", results[0].errors[0])
+
+    def test_check_noemt_de_winkel_die_geen_prijs_geeft(self):
+        # Zonder deze regel ziet de gebruiker alleen "-" en weet hij niet dat
+        # een winkel weigerde.
+        import contextlib
+        import io
+
+        from pricewatch import cli
+
+        watch, amazon, coolblue = self.watch()
+        self.net.prices[amazon["id"]] = 249.0
+        self.net.errors[coolblue["id"]] = "shop houdt ons tegen (403)"
+        args = cli.build_parser().parse_args(["check"])
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            self.assertEqual(cli.run_check(self.store, args), 0)
+        uit = buf.getvalue()
+        self.assertIn("Coolblue", uit)
+        self.assertIn("403", uit)
+
+
 class TestSoftNotes(CheckerTestCase):
     """Een accessoiresprijs is geen winkel die weigert: geen rode bar."""
 

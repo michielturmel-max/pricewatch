@@ -120,7 +120,7 @@ def follow_category(response: Any, offer: dict[str, Any], want: str, timeout: fl
         try:
             page = fetch.get(url, timeout=timeout)
             candidate = shops.product_price(page.body, page.url, want)
-        except (fetch.FetchError, ValueError) as exc:
+        except Exception as exc:  # een categoriepagina mag de check niet stoppen
             notes.append(str(exc)[:120])
             continue
         if candidate:
@@ -137,8 +137,15 @@ def check_watch(
 ) -> WatchResult:
     result = WatchResult(watch_id=watch["id"], name=watch["name"])
     result.previous_best = watch.get("best_price")
-    if not dry_run:
-        store.begin_check(watch["id"])
+    # Bewaar de beste prijs van vóór deze check. Valt elke winkel weg, dan komt
+    # die terug in plaats van de laatst weggeschreven prijs van één winkel.
+    previous = {
+        "best_price": watch.get("best_price"),
+        "best_shop": watch.get("best_shop") or "",
+        "best_url": watch.get("best_url") or "",
+        "best_title": watch.get("best_title") or "",
+        "best_source": watch.get("best_source") or "",
+    }
     offers = [o for o in watch["offers"] if o.get("enabled")]
     if not offers:
         result.offers.append(OfferResult(offer={"id": "-", "shop": "", "kind": "", "value": ""}, error="geen winkels"))
@@ -152,7 +159,14 @@ def check_watch(
     for offer in offers:
         if on_progress:
             on_progress(f"{watch['name']} \u2192 {shops.label(offer['shop'])}")
-        candidate, error, page_url = fetch_offer(offer, watch["name"], timeout)
+        try:
+            candidate, error, page_url = fetch_offer(offer, watch["name"], timeout)
+        except Exception as exc:  # één winkel mag de hele ronde niet stoppen
+            candidate, error, page_url = (
+                None,
+                f"onverwachte fout: {type(exc).__name__}: {exc}"[:200],
+                "",
+            )
         if candidate and floor is not None and candidate.price < floor:
             error = (
                 f"{SOFT_NOTE} {money(candidate.price)} ligt onder je bodem van {money(floor)}"
@@ -214,6 +228,7 @@ def check_watch(
             beste.url if beste else "",
             (kandidaat.title if kandidaat else "") or "",
             (kandidaat.source if kandidaat else "") or "",
+            previous=previous,
         )
     if result.best_price is None:
         result.best_price = result.previous_best
@@ -266,11 +281,31 @@ def check_all(
         watches = store.watches()
     results = []
     for watch in watches:
-        result = check_watch(store, watch, dry_run=dry_run, timeout=timeout, on_progress=on_progress)
+        try:
+            result = check_watch(store, watch, dry_run=dry_run, timeout=timeout, on_progress=on_progress)
+        except Exception as exc:
+            # Een db die even op slot zit of een fout die we nog niet kennen:
+            # die ene watch houdt op, de andere gaan door. Zonder deze grens
+            # levert één kapotte watch geen JSON op en ziet het paneel alleen
+            # een lege balk.
+            result = WatchResult(
+                watch_id=watch["id"],
+                name=watch["name"],
+                best_price=watch.get("best_price"),
+            )
+            result.offers.append(
+                OfferResult(
+                    offer={"id": "-", "shop": "", "kind": "", "value": ""},
+                    error=f"check mislukt: {type(exc).__name__}: {exc}"[:200],
+                )
+            )
         results.append(result)
         if notify and not dry_run:
             for deal in result.deals:
-                send_notification(deal)
+                try:
+                    send_notification(deal)
+                except Exception:
+                    pass
     return results
 
 

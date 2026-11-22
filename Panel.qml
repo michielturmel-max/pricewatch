@@ -48,6 +48,11 @@ Panel {
   property var treffers: []
   property string zoekTerm: ""
   property bool zoekBezig: false
+  // Een winkel die ons weigert laat zijn prijs alleen aan een browser zien. Dan
+  // wijzen we op de Tweakers-zoekpagina; dat is geen omweg om de muur heen, maar
+  // de plek waar een mens die prijs wel ziet.
+  property string zoekHint: ""
+  property string zoekHintWinkel: ""
 
   // Filter en sortering gelden alleen voor de watchlijst; zoektreffers houden
   // de volgorde van de winkels aan. `bewerk` is welk veld onderaan openstaat.
@@ -185,8 +190,27 @@ Panel {
     root.melding = ""
     var data = null
     try { data = JSON.parse(tekst) } catch (e) { data = null }
-    if (data && data.deals) root.melding = data.deals + " nieuwe melding(en)"
-    else if (data && data.errors && data.errors.length) root.melding = data.errors.length + " winkel(s) geven geen prijs"
+    // `pricewatch check --json` levert een lijst met één regel per watch, geen
+    // object. Wie hier data.deals leest krijgt undefined en meldt dus altijd
+    // "niets veranderd", ook als er een deal was.
+    if (!data || !data.length) {
+      root.melding = watches.length === 0 ? "nog geen watches" : "er liep al een check"
+      root.ophalen()
+      meldingTimer.restart()
+      return
+    }
+    var deals = 0
+    var fouten = 0
+    for (var i = 0; i < data.length; i++) {
+      var rij = data[i] || {}
+      deals += (rij.deals || []).length
+      var offers = rij.offers || []
+      for (var j = 0; j < offers.length; j++) {
+        if (offers[j].error) fouten++
+      }
+    }
+    if (deals > 0) root.melding = deals + " nieuwe melding(en)"
+    else if (fouten > 0) root.melding = fouten + " winkel(s) geven geen prijs"
     else root.melding = "niets veranderd"
     root.ophalen()
     meldingTimer.restart()
@@ -200,6 +224,8 @@ Panel {
     root.treffers = []
     root.keuze = 0
     root.melding = ""
+    root.zoekHint = ""
+    root.zoekHintWinkel = ""
     Qt.callLater(function () { zoekVeld.forceActiveFocus() })
   }
 
@@ -209,6 +235,8 @@ Panel {
     root.treffers = []
     root.zoekTerm = ""
     root.keuze = 0
+    root.zoekHint = ""
+    root.zoekHintWinkel = ""
     keys.forceActiveFocus()
   }
 
@@ -235,6 +263,9 @@ Panel {
     }
     root.treffers = data.hits
     root.keuze = 0
+    // Alleen als een winkel ons echt weigerde zit hier een adres in.
+    root.zoekHint = data.tweakers_url || ""
+    root.zoekHintWinkel = (data.blocked_shops || []).join(", ")
     var fouten = (data.errors || []).length
     var over = (data.skipped || []).length
     root.melding = root.treffers.length + " treffer(s) voor " + data.term
@@ -467,6 +498,12 @@ Panel {
     stdout: StdioCollector {
       waitForEnd: true
       onStreamFinished: root.naCheck(text)
+    }
+    // Als de check zelf niet doorkomt, staat de reden op stderr. Zonder deze
+    // regel bleef het paneel dan stil en leek het of er niets gebeurd was.
+    stderr: StdioCollector {
+      waitForEnd: true
+      onStreamFinished: if (String(text).trim() !== "") root.geweigerd(text)
     }
     onExited: root.bezig = false
   }
@@ -763,6 +800,26 @@ Panel {
           wrapMode: Text.WordWrap
         }
 
+        // Een weigering is geen storing: de winkel laat zijn prijs alleen aan een
+        // browser zien. Klikbaar, zodat je meteen op de plek staat waar die prijs
+        // wel staat.
+        Text {
+          width: parent.width
+          visible: root.modus === "zoek" && root.zoekHint !== ""
+          text: "↗ " + (root.zoekHintWinkel !== "" ? root.zoekHintWinkel : "deze winkel")
+            + " weigert ons · zoek dit product op Tweakers Pricewatch"
+          color: Color.accent
+          font.family: root.bar ? root.bar.fontFamily : Style.font.family
+          font.pixelSize: root.captionFont
+          elide: Text.ElideRight
+
+          MouseArea {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onClicked: Qt.openUrlExternally(root.zoekHint)
+          }
+        }
+
         // Watches
         ListView {
           id: lijst
@@ -1022,7 +1079,7 @@ Panel {
             width: parent.width
             text: root.zoekBezig ? "zoekt…"
               : root.zoekTerm ? "niets gevonden voor " + root.zoekTerm + "."
-              : "Typ een product en druk op enter. We vragen Amazon, Coolblue, MediaMarkt, Apple en AliExpress."
+              : "Typ een product en druk op enter. We vragen Amazon, Coolblue, MediaMarkt, Apple, Informatique en AliExpress."
             color: Color.muted
             font.family: root.bar ? root.bar.fontFamily : Style.font.family
             font.pixelSize: root.captionFont

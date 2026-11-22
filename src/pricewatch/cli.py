@@ -23,7 +23,7 @@ from typing import Any, NoReturn
 from . import checker, deals, fetch, search, shops
 from .store import SOFT_NOTE, Store, is_soft, money, pct, when
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 
 
 def out(*parts: str) -> None:
@@ -95,6 +95,10 @@ def add_watch(store: Store, args: argparse.Namespace) -> int:
     for offer in store.watch(watch["id"])["offers"]:
         kind = "zoeken" if offer["kind"] == "search" else "pagina"
         out(f"  {shops.label(offer['shop'])} ({kind}): {offer['value']}")
+        known = shops.SHOPS.get(offer["shop"])
+        if known and known.blocked:
+            # Nu zeggen, niet pas als de eerste check rood wordt.
+            out(f"    let op: deze winkel zet ons nu weg ({known.note})")
     out("  eerste prijzen ophalen met: pricewatch check")
     return 0
 
@@ -582,6 +586,9 @@ def run_check(store: Store, args: argparse.Namespace) -> int:
         if result.previous_best and result.best_price and result.best_price < result.previous_best:
             line += f" (was {money(result.previous_best)})"
         out(line)
+        for offer in result.offers:
+            if offer.error:
+                out(f"  ! {shops.label(offer.offer.get('shop') or '')}: {offer.error}")
         for deal in result.deals:
             out(f"  \u2193 {deal.text}")
             if deal.url:
@@ -640,7 +647,15 @@ def zoek_command(store: Store, args: argparse.Namespace) -> int:
                 "term": args.term,
                 "shops": [r.as_dict() for r in results],
                 "hits": [h.as_dict() for h in alle],
-                "errors": [{"shop": r.shop, "shop_name": r.shop_name, "error": r.error} for r in results if r.error],
+                "errors": [
+                    {"shop": r.shop, "shop_name": r.shop_name, "error": r.error, "blocked": r.blocked}
+                    for r in results
+                    if r.error
+                ],
+                "blocked_shops": [r.shop_name for r in results if r.blocked],
+                # Alleen als een winkel ons écht weigerde: bij een storing heeft
+                # de Tweakers-omweg geen zin.
+                "tweakers_url": search.tweakers_url(term) if any(r.blocked for r in results) else "",
                 "skipped": [{"shop_name": naam, "reason": reden} for naam, reden in search.skipped(args.shops or "")],
             },
             True,
@@ -656,6 +671,18 @@ def zoek_command(store: Store, args: argparse.Namespace) -> int:
             out(f"  \u00b7 {result.shop_name:14} niets gevonden{': ' + result.note if result.note else ''}")
             continue
         out(f"  \u2713 {result.shop_name:14} {len(result.hits)} treffer(s)")
+
+    # Een winkel die ons wegzet laat zijn prijs alleen aan een browser zien. Zeg
+    # waar de mens die prijs wél ziet, in plaats van hem te laten denken dat zijn
+    # verbinding stuk is.
+    geweigerd = [r.shop_name for r in results if r.blocked]
+    if geweigerd:
+        out("")
+        out(f"  {', '.join(geweigerd)}: prijs alleen zichtbaar in een browser (je verbinding is niet stuk).")
+        out("  Zoek hetzelfde product op Tweakers Pricewatch:")
+        out(f"    {search.tweakers_url(term)}")
+        out("  en volg de productpagina die je daar vindt: pricewatch add '<naam>' --url '<tweakers-productpagina>'")
+
     if alle:
         out("")
         for index, hit in enumerate(alle[: args.limit], start=1):
@@ -697,7 +724,7 @@ def shops_command(store: Store, args: argparse.Namespace) -> int:
             if not url:
                 out(f"{shop.name:14} geen zoekadres")
                 continue
-            state, note = fetch.probe(url)
+            state, note = fetch.probe(url, timeout=args.timeout)
             mark = {"ok": "\u2713", "blocked": "\u2717", "404": "\u2717", "netwerk": "?"}.get(state, "?")
             out(f"{mark} {shop.name:14} {state:8} {note}")
         return 0
@@ -832,6 +859,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("shops", help="bekende winkels")
     p.add_argument("--probe", metavar="WINKELS", help="test deze winkels nu, komma-gescheiden")
     p.add_argument("--query", metavar="TEKST", help="zoekterm voor de probe")
+    p.add_argument("--timeout", type=float, default=12.0, help="timeout per winkel bij --probe")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=shops_command)
 

@@ -150,6 +150,12 @@ en tweedehands staan daar los van en tellen niet mee, net zoals ze hier niet
 meetellen voor een nieuwe watch. Zoeken op Tweakers vraagt om een captcha en
 blijft daarom overgeslagen; geef de productpagina met `--url`.
 
+Een winkel die ons wegzet (botmuur, 403) laat zijn prijs alleen aan een browser
+zien. Dat is geen fout in je verbinding, en de muur wordt hier niet omzeild:
+`pricewatch zoek` en het paneel geven je dan de Tweakers-zoekpagina voor je
+term, waar je die prijs wél ziet. De productpagina die je daarvan overneemt
+leest de plugin gewoon, en die ene pagina antwoordt ons meestal wel.
+
 `pricewatch shops --probe amazon-nl,coolblue` zegt welke winkels nu antwoorden.
 Een winkel die weigert, blijft in je lijst staan met de fout erbij; de vorige prijs
 blijft gewoon staan. Je kunt elke winkel met `--url` een productpagina geven, dan
@@ -185,6 +191,10 @@ test in `test/test_extract.py` horen erbij, anders is de parser niet af.
   wordt alleen geaccepteerd als er geen andere, duidelijkere prijs bij staat.
 - Er gaat niets naar een externe dienst. De winkelRequests zijn gewone
   paginaopvrachten, met een rustige pauze per winkel (cooldown).
+- Een hapering kost hooguit één aanbod: een afgekapt antwoord, een proxy die
+  onzin teruggeeft of een winkel die met status 200 om een botcontrole vraagt
+  wordt als fout bij die winkel bewaard, met een pauze voor die winkel. De rest
+  van de ronde loopt door en de vorige prijs blijft staan.
 
 ## Licentie
 

@@ -286,8 +286,9 @@ class Store:
             (watch_id,),
         ).fetchone()
         # De laagste van de winkels uit déze check wint. Binnen een check daalt
-        # best_price dus alleen, precies als toen, maar begin_check heeft de waarde
-        # van de vorige check weggehaald zodat die niet blijft hangen.
+        # best_price dus alleen; de prijs van de vorige check blijft staan tot
+        # end_check de beste van deze ronde neerzet. Zo houdt de bar tijdens een
+        # check gewoon een prijs, ook als die check lang duurt of halverwege stopt.
         if previous and (previous["best_price"] is None or price < previous["best_price"]):
             self.db.execute(
                 "UPDATE watches SET best_price=?, best_shop=?, best_url=?, best_title=?, best_source=?"
@@ -301,21 +302,6 @@ class Store:
         self.db.commit()
         return {"previous_best": previous["best_price"] if previous else None, "price": price, "shop": shop, "url": url, "title": title}
 
-    def begin_check(self, watch_id: str) -> None:
-        """Maak de beste prijs leeg voor een nieuwe check.
-
-        De laagste prijs vasthouden werkte, maar een meting die verkeerd uitviel
-        bleef daarmee voorgoed de beste prijs: het product leek permanent in
-        aanbieding. Binnen een check daalt de beste prijs alleen nog, en de
-        laagste ooit (low_price) blijft wél overeind.
-        """
-        self.db.execute(
-            "UPDATE watches SET best_price=NULL, best_shop='', best_url='', best_title='', best_source=''"
-            " WHERE id=?",
-            (watch_id,),
-        )
-        self.db.commit()
-
     def end_check(
         self,
         watch_id: str,
@@ -324,11 +310,16 @@ class Store:
         url: str = "",
         title: str = "",
         source: str = "",
+        previous: dict[str, Any] | None = None,
     ) -> None:
-        """Zet de beste prijs van déze check, of haal de laatste bekende terug.
+        """Zet de beste prijs van déze check, of houd de vorige.
 
         Er moet altijd iets staan. Een check schrijft alleen een prijs als die
         veranderd is, dus deze waarde is de enige die zegt wat de watch nu kost.
+        Geeft geen enkele winkel antwoord, dan komt de beste prijs van vóór de
+        check terug. De nieuwste prijsregel zou hier fout zijn: dat is de laatst
+        weggeschreven winkel, niet de goedkoopste, en een winkel die zwijgt is
+        geen stijging.
         """
         if price is not None:
             self.db.execute(
@@ -338,15 +329,18 @@ class Store:
             )
             self.db.commit()
             return
-        row = self.db.execute(
-            "SELECT price, shop, url, title, source FROM prices WHERE watch_id=? ORDER BY ts DESC LIMIT 1",
-            (watch_id,),
-        ).fetchone()
-        if row is None:
+        if not previous or previous.get("best_price") is None:
             return
         self.db.execute(
             "UPDATE watches SET best_price=?, best_shop=?, best_url=?, best_title=?, best_source=? WHERE id=?",
-            (row["price"], row["shop"], row["url"], row["title"], row["source"], watch_id),
+            (
+                previous["best_price"],
+                previous.get("best_shop") or "",
+                previous.get("best_url") or "",
+                (previous.get("best_title") or "")[:200],
+                previous.get("best_source") or "",
+                watch_id,
+            ),
         )
         self.db.commit()
 

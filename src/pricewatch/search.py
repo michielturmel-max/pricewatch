@@ -53,6 +53,10 @@ class ShopResult:
     shop_name: str
     hits: list[Hit] = field(default_factory=list)
     error: str = ""
+    #: De winkel weigerde ons (botmuur). Dat is iets anders dan een storing: de
+    #: winkel antwoordt, alleen niet aan ons. Daar hoort een andere route bij dan
+    #: "probeer het zo nog eens".
+    blocked: bool = False
     watchable: bool = True
 
     def as_dict(self) -> dict[str, Any]:
@@ -61,6 +65,7 @@ class ShopResult:
             "shop_name": self.shop_name,
             "hits": [h.as_dict() for h in self.hits],
             "error": self.error,
+            "blocked": self.blocked,
             "watchable": self.watchable,
         }
 
@@ -128,6 +133,10 @@ def search_shop(
         return result
     try:
         response = fetch.get(url, timeout=timeout)
+    except fetch.Blocked as exc:
+        result.error = str(exc)[:200]
+        result.blocked = True
+        return result
     except fetch.FetchError as exc:
         result.error = str(exc)[:200]
         return result
@@ -180,7 +189,7 @@ def _follow(
         try:
             page = fetch.get(url, timeout=timeout)
             candidate = shops.product_price(page.body, page.url, term)
-        except (fetch.FetchError, ValueError):
+        except Exception:  # één kapotte productlink mag de zoekactie niet stoppen
             continue
         if not candidate or not candidate.price:
             continue
@@ -227,3 +236,15 @@ def hits(results: list[ShopResult]) -> list[Hit]:
     flat = [hit for r in results for hit in r.hits]
     flat.sort(key=lambda h: h.price)
     return flat
+
+
+def tweakers_url(term: str) -> str:
+    """De Tweakers-zoekpagina voor een *mens*, niet voor ons.
+
+    Een winkel die ons weigert, laat aan een browser wel zijn prijs zien, en
+    Tweakers Pricewatch vergelijkt die winkels zelf. Wij halen deze pagina niet
+    op (Tweakers vraagt daar om een captcha) en omzeilen niets: we geven de
+    gebruiker het adres waar hij zelf verder kan, en de productpagina die hij
+    daarvan overneemt leest de plugin daarna gewoon.
+    """
+    return shops.SHOPS["tweakers"].url_for(term) if term else ""

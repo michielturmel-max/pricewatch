@@ -42,13 +42,17 @@ TWEE_PRODUCTEN = """
 class FakeNetwork:
     """Serves canned pages per url fragment; records every request."""
 
-    def __init__(self, pages, errors=()):
+    def __init__(self, pages, errors=(), blocked=()):
         self.pages = pages
         self.errors = tuple(errors)
+        self.blocked = tuple(blocked)
         self.calls = []
 
     def __call__(self, url, timeout=12.0, retries=2):
         self.calls.append(url)
+        for fragment in self.blocked:
+            if fragment in url:
+                raise fetch.Blocked(f"shop houdt ons tegen (403): {url}")
         for fragment in self.errors:
             if fragment in url:
                 raise fetch.FetchError(f"{fragment} weigert")
@@ -67,8 +71,8 @@ class SearchTestCase(unittest.TestCase):
         fetch.get = self.real_get
         search.time.sleep = self.real_sleep
 
-    def net(self, pages, errors=()):
-        fetch.get = FakeNetwork(pages, errors)
+    def net(self, pages, errors=(), blocked=()):
+        fetch.get = FakeNetwork(pages, errors, blocked)
         return fetch.get
 
 
@@ -138,6 +142,24 @@ class TestSearchShop(SearchTestCase):
         self.assertTrue(result.note)
         for hit in result.hits:
             self.assertNotIn("/zoeken", hit.url)
+
+    def test_weigering_is_iets_anders_dan_een_storing(self):
+        # Een winkel die ons wegzet antwoordt wél; een winkel met netwerktrouble
+        # niet. Alleen de eerste hoort de Tweakers-omweg te krijgen.
+        self.net({}, blocked=["mediamarkt"])
+        geweigerd = search.search_shop("mediamarkt", "usb-c hub")
+        self.assertTrue(geweigerd.blocked)
+        self.assertTrue(geweigerd.as_dict()["blocked"])
+
+        self.net({}, errors=["coolblue"])
+        self.assertFalse(search.search_shop("coolblue", "usb-c hub").blocked)
+
+    def test_tweakers_adres_voor_de_mens(self):
+        self.assertEqual(
+            search.tweakers_url("usb-c hub"),
+            "https://tweakers.net/pricewatch/zoeken/?keyword=usb-c+hub",
+        )
+        self.assertEqual(search.tweakers_url(""), "")
 
     def test_andere_productsoort_blijft_buiten(self):
         # Een SD-kaartlezer deelt het woord "kaart" met een grafische kaart, maar
@@ -293,6 +315,36 @@ class TestSearchCommand(SearchTestCase):
     def test_onbekende_winkel_stopt_met_foutcode(self):
         with self.assertRaises(SystemExit):
             self.run_zoek(["zoek", "mx master", "--shops", "bolcom"])
+
+    def test_weigering_wijst_op_tweakers_in_json(self):
+        import json
+
+        self.net({}, blocked=["mediamarkt"])
+        search.time.sleep = lambda _: None
+        code, uit = self.run_zoek(["zoek", "usb-c hub", "--shops", "mediamarkt", "--json"])
+        self.assertEqual(code, 0)
+        data = json.loads(uit)
+        self.assertEqual(data["blocked_shops"], ["MediaMarkt"])
+        self.assertIn("tweakers.net/pricewatch/zoeken", data["tweakers_url"])
+        self.assertTrue(data["errors"][0]["blocked"])
+
+    def test_tekstuitvoer_noemt_de_tweakers_omweg(self):
+        self.net({}, blocked=["mediamarkt"])
+        search.time.sleep = lambda _: None
+        code, uit = self.run_zoek(["zoek", "usb-c hub", "--shops", "mediamarkt"])
+        self.assertEqual(code, 0)
+        self.assertIn("alleen zichtbaar in een browser", uit)
+        self.assertIn("https://tweakers.net/pricewatch/zoeken/?keyword=usb-c+hub", uit)
+
+    def test_gewone_storing_geeft_geen_tweakers_hint(self):
+        import json
+
+        self.net({}, errors=["coolblue"])
+        search.time.sleep = lambda _: None
+        code, uit = self.run_zoek(["zoek", "usb-c hub", "--shops", "coolblue", "--json"])
+        data = json.loads(uit)
+        self.assertEqual(data["tweakers_url"], "")
+        self.assertEqual(data["blocked_shops"], [])
 
 
 if __name__ == "__main__":
